@@ -9,7 +9,7 @@ function RecipeForm() {
 		coffeeOrigin: "",
 		coffeeVarietal: "",
 		tastingNotes: "",
-		steps: [{ step: "" }],
+		steps: [""],
 	};
 
 	const handleOnSubmit = (values, actions) => {
@@ -59,7 +59,7 @@ function RecipeForm() {
 							{({ insert, remove, push }) => (
 								<div>
 									{values.steps.length > 0 &&
-										values.steps.map((friend, index) => (
+										values.steps.map((step, index) => (
 											<div
 												className='row'
 												key={index}
@@ -70,7 +70,7 @@ function RecipeForm() {
 												}}
 											>
 												<div className='col'>
-													<label htmlFor={`steps.${index}.name`}>
+													<label htmlFor={`steps.${index}.step`}>
 														Step {index + 1}
 													</label>
 													<Field
