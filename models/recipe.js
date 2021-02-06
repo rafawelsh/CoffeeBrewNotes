@@ -23,11 +23,9 @@ const RecipeSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	steps: [
-		{
-			type: String,
-		},
-	],
+	steps: {
+		type: Array,
+	},
 });
 
 module.exports = Recipe = mongoose.model("recipe", RecipeSchema);

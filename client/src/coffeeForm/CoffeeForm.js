@@ -1,123 +1,117 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import styled from "styled-components";
+import { Formik, Field, Form, FieldArray } from "formik";
 
-function CoffeeForm() {
-	const [formState, setFormState] = useState({
+function RecipeForm() {
+	const initialValues = {
 		brewMethod: "",
 		roaster: "",
 		coffeeOrigin: "",
 		coffeeVarietal: "",
 		tastingNotes: "",
-	});
-
-	//adds new values to form inputs
-	const handleChange = ({ target }) => {
-		const { name, value } = target;
-		setFormState({ ...formState, [name]: value });
+		steps: [{ step: "" }],
 	};
 
-	const newStep = {};
-	const [stepState, setStepState] = useState([{ ...newStep }]);
-
-	//adds steps to stepItem state w/i formState
-	const addStep = () => {
-		setStepState([...stepState, { ...newStep }]);
-	};
-
-	//adding arr of steps seperate from formState
-	const handleStepsChange = ({ target }) => {
-		const { dataset, className, value } = target;
-		const updatedSteps = [...stepState];
-		updatedSteps[dataset.idx][className] = value;
-		setStepState(updatedSteps);
-	};
-
-	//handle submit of total form
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log({ ...formState, stepState });
+	const handleOnSubmit = (values, actions) => {
+		axios({
+			method: "POST",
+			url: "/api/recipes",
+			data: values,
+		})
+			.then((response) => {
+				actions.setSubmitting(false);
+				actions.resetForm();
+				console.log(values);
+			})
+			.catch((error) => {
+				actions.setSubmitting(false);
+				console.log(error);
+			});
 	};
 
 	return (
-		<form
-			onSubmit={handleSubmit}
-			style={{
-				display: "flex",
-				flexDirection: "column",
-				width: "400px",
-				margin: "0 auto",
-			}}
-		>
-			<label>
-				Brew Method:
-				<input
-					type='text'
-					name='brewMethod'
-					value={formState.brewMethod}
-					onChange={handleChange}
-				/>
-			</label>
-			<label>
-				Roaster:
-				<input
-					type='text'
-					name='roaster'
-					value={formState.roaster}
-					onChange={handleChange}
-				/>
-			</label>
-			<label>
-				Origin:
-				<input
-					type='text'
-					name='coffeeOrigin'
-					value={formState.coffeeOrigin}
-					onChange={handleChange}
-				/>
-			</label>
-			<label>
-				Varietal:
-				<input
-					type='text'
-					name='coffeeVarietal'
-					value={formState.coffeeVarietal}
-					onChange={handleChange}
-				/>
-			</label>
-
-			<label>Brewing Steps</label>
-			{stepState.map((val, idx) => {
-				const stepId = `step-${idx}`;
-				return (
-					<Fragment key={`step-${idx}`}>
-						<label htmlFor={stepId}>{`Step #${idx + 1}`}:</label>
-						<input
-							type='text'
-							name={stepId}
-							data-idx={idx}
-							id={stepId}
-							className='steps'
-							value={stepState[idx].name}
-							onChange={handleStepsChange}
+		<div>
+			<h1>Add a New Recipe</h1>
+			<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+				{({ values }) => (
+					<Form
+						style={{
+							display: "flex",
+							width: "400px",
+							flexDirection: "column",
+							margin: "0 auto",
+						}}
+					>
+						<label htmlFor='brewMethod'>Brew Method </label>
+						<Field id='brewMethod' name='brewMethod' placeholder='Method' />
+						<label htmlFor='roaster'>Roaster </label>
+						<Field id='roaster' name='roaster' placeholder='Roaster' />
+						<label htmlFor='coffeeOrigin'>Origin </label>
+						<Field id='coffeeOrigin' name='coffeeOrigin' placeholder='Origin' />
+						handleOnSubmit
+						<label htmlFor='coffeeVarietal'>Varietal</label>
+						<Field
+							id='coffeeVarietal'
+							name='coffeeVarietal'
+							placeholder='Varietal'
 						/>
-					</Fragment>
-				);
-			})}
-			<input type='button' value='Add Step' onClick={addStep} />
-
-			<label>
-				Notes:
-				<textarea
-					type='text'
-					name='tastingNotes'
-					value={formState.tastingNotes}
-					onChange={handleChange}
-				/>
-			</label>
-			<input type='submit' value='Submit' />
-		</form>
+						<FieldArray name='steps'>
+							{({ insert, remove, push }) => (
+								<div>
+									{values.steps.length > 0 &&
+										values.steps.map((friend, index) => (
+											<div
+												className='row'
+												key={index}
+												style={{
+													display: "flex",
+													width: "fit-content",
+													margin: "0 auto",
+												}}
+											>
+												<div className='col'>
+													<label htmlFor={`steps.${index}.name`}>
+														Step {index + 1}
+													</label>
+													<Field
+														name={`steps.${index}.step`}
+														placeholder='Add a step'
+														type='text'
+													/>
+												</div>
+												<div className='col'>
+													<button
+														type='button'
+														className='secondary'
+														onClick={() => remove(index)}
+													>
+														X
+													</button>
+												</div>
+											</div>
+										))}
+									<button
+										type='button'
+										className='secondary'
+										onClick={() => push("")}
+									>
+										Add a Step
+									</button>
+								</div>
+							)}
+						</FieldArray>
+						<label htmlFor='tastingNotes'>Notes</label>
+						<Field
+							id='tastingNotes'
+							name='tastingNotes'
+							placeholder='Varietal'
+							as='textarea'
+						/>
+						<button type='submit'>Enter Recipe</button>
+					</Form>
+				)}
+			</Formik>
+		</div>
 	);
 }
-
-export default CoffeeForm;
+export default RecipeForm;
