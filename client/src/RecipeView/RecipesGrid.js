@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import RecipeEntry from "./RecipeEntry";
 
-export default function Recipes() {
+export default function RecipesGrid() {
 	const [recipeEntries, setRecipeEntries] = useState([]);
 
 	useEffect(() => {
@@ -13,7 +14,8 @@ export default function Recipes() {
 		axios
 			.get("/api/recipes/")
 			.then((res) => {
-				console.log(res.data);
+				console.log(...res.data);
+				setRecipeEntries(Object.values(res.data));
 			})
 			.catch((err) => {
 				console.log(err);
@@ -22,7 +24,14 @@ export default function Recipes() {
 
 	return (
 		<div>
-			<h1>Welcome to the app!</h1>
+			<h1>List of recipes</h1>
+			<ul>
+				{recipeEntries.map((recipe) => (
+					<li key={recipe._id}>
+						<RecipeEntry recipe={recipe} />
+					</li>
+				))}
+			</ul>
 		</div>
 	);
 }

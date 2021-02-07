@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const RecipeSchema = new Schema({
+	date: {
+		type: Date,
+		default: Date.now,
+	},
 	brewMethod: {
 		type: String,
 		required: true,

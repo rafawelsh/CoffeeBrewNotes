@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { Formik, Field, Form, FieldArray } from "formik";
 
@@ -49,7 +49,7 @@ function RecipeForm() {
 						<label htmlFor='coffeeOrigin'>Origin </label>
 						<Field id='coffeeOrigin' name='coffeeOrigin' placeholder='Origin' />
 						handleOnSubmit
-						<label htmlFor='coffeeVarietal'>Varietal</label>
+						<label htmlFor='coffeeVarietal'>Varietal </label>
 						<Field
 							id='coffeeVarietal'
 							name='coffeeVarietal'
@@ -70,11 +70,11 @@ function RecipeForm() {
 												}}
 											>
 												<div className='col'>
-													<label htmlFor={`steps.${index}.step`}>
+													<label htmlFor={`steps.${index}`}>
 														Step {index + 1}
 													</label>
 													<Field
-														name={`steps.${index}.step`}
+														name={`steps.${index}`}
 														placeholder='Add a step'
 														type='text'
 													/>

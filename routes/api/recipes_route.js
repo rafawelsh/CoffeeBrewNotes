@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // Recipe Model
-const Recipe = require("../../models/Recipe");
+const Recipe = require("../../models/recipe_model");
 
 /* 
 @route GET api/items
@@ -10,7 +10,9 @@ const Recipe = require("../../models/Recipe");
 @access Public for now
 */
 router.get("/", (req, res) => {
-	Recipe.find().then((recipes) => res.json(recipes));
+	Recipe.find()
+		.sort({ date: -1 })
+		.then((recipes) => res.json(recipes));
 });
 
 /* 
