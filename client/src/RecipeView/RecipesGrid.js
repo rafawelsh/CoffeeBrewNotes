@@ -3,6 +3,17 @@ import axios from "axios";
 import styled from "styled-components";
 import RecipeEntry from "./RecipeEntry";
 
+const StyledGrid = styled.ul`
+	list-style-type: none;
+	display: flex;
+	padding: 0 auto;
+`;
+
+const StyledItem = styled.li`
+	border: 1px solid black;
+	width: 500px;
+`;
+
 export default function RecipesGrid() {
 	const [recipeEntries, setRecipeEntries] = useState([]);
 
@@ -25,13 +36,13 @@ export default function RecipesGrid() {
 	return (
 		<div>
 			<h1>List of recipes</h1>
-			<ul>
+			<StyledGrid>
 				{recipeEntries.map((recipe) => (
-					<li key={recipe._id}>
+					<StyledItem key={recipe._id}>
 						<RecipeEntry recipe={recipe} />
-					</li>
+					</StyledItem>
 				))}
-			</ul>
+			</StyledGrid>
 		</div>
 	);
 }

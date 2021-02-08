@@ -48,7 +48,6 @@ function RecipeForm() {
 						<Field id='roaster' name='roaster' placeholder='Roaster' />
 						<label htmlFor='coffeeOrigin'>Origin </label>
 						<Field id='coffeeOrigin' name='coffeeOrigin' placeholder='Origin' />
-						handleOnSubmit
 						<label htmlFor='coffeeVarietal'>Varietal </label>
 						<Field
 							id='coffeeVarietal'
