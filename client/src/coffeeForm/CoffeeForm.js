@@ -5,11 +5,12 @@ import { Formik, Field, Form, FieldArray } from "formik";
 function RecipeForm() {
 	const initialValues = {
 		brewMethod: "",
-		roaster: "",
 		coffeeOrigin: "",
-		coffeeVarietal: "",
-		tastingNotes: "",
+		roaster: "",
+		coffeeVariety: "",
+		process: "",
 		steps: [""],
+		tastingNotes: "",
 	};
 
 	const handleOnSubmit = (values, actions) => {
@@ -43,17 +44,43 @@ function RecipeForm() {
 						}}
 					>
 						<label htmlFor='brewMethod'>Brew Method </label>
-						<Field id='brewMethod' name='brewMethod' placeholder='Method' />
-						<label htmlFor='roaster'>Roaster </label>
-						<Field id='roaster' name='roaster' placeholder='Roaster' />
+						<Field
+							id='brewMethod'
+							name='brewMethod'
+							as='select'
+							placeholder='Method'
+						>
+							<option value='Drip'>Drip</option>
+							<option value='Espresso'>Espresso</option>
+							<option value='Honey'>Pour Over</option>
+							<option value='French Press'>French Press</option>
+							<option value='Aeropress'>Aeropress</option>
+							<option value='Chemex'>Chemex</option>
+							<option value='Siphon'>Siphon</option>
+							<option value='Other'>Other</option>
+						</Field>
 						<label htmlFor='coffeeOrigin'>Origin </label>
 						<Field id='coffeeOrigin' name='coffeeOrigin' placeholder='Origin' />
-						<label htmlFor='coffeeVarietal'>Varietal </label>
+						<label htmlFor='roaster'>Roaster </label>
+						<Field id='roaster' name='roaster' placeholder='Roaster' />
+						<label htmlFor='coffeeVariety'>Variety </label>
 						<Field
-							id='coffeeVarietal'
-							name='coffeeVarietal'
-							placeholder='Varietal'
+							id='coffeeVariety'
+							name='coffeeVariety'
+							placeholder='Variety'
 						/>
+						<label htmlFor='process'>Process </label>
+						<Field
+							id='process'
+							name='process'
+							as='select'
+							placeholder='Process'
+						>
+							<option value='natural'>Natural</option>
+							<option value='Washed'>Washed</option>
+							<option value='honey'>Honey</option>
+							<option value='anaerobic'>Anaerobic</option>
+						</Field>
 						<FieldArray name='steps'>
 							{({ insert, remove, push }) => (
 								<div>

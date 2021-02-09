@@ -17,18 +17,19 @@ const RecipeSchema = new Schema({
 	},
 	coffeeOrigin: {
 		type: String,
-		required: true,
 	},
-	coffeeVarietal: {
+	coffeeVariety: {
 		type: String,
+	},
+	process: {
+		type: String,
+	},
+	steps: {
+		type: Array,
 		required: true,
 	},
 	tastingNotes: {
 		type: String,
-		required: true,
-	},
-	steps: {
-		type: Array,
 	},
 });
 
