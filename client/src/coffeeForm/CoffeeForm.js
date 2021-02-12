@@ -22,7 +22,6 @@ function RecipeForm() {
 			.then((response) => {
 				actions.setSubmitting(false);
 				actions.resetForm();
-				console.log(values);
 			})
 			.catch((error) => {
 				actions.setSubmitting(false);
