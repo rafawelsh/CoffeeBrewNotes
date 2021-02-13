@@ -1,19 +1,8 @@
 import React from "react";
-
-export default function RecipeCard({ recipe }) {
-	const {
-		brewMethod,
-		coffeeOrigin,
-		roaster,
-		coffeeVariety,
-		process,
-		steps,
-		tastingNotes,
-	} = recipe;
+export default function RecipeCard(props) {
 	return (
 		<div>
-			<h1>{brewMethod}</h1>
-			<h3>{coffeeVariety}</h3>
+			<p>HELLO THERE</p>
 		</div>
 	);
 }

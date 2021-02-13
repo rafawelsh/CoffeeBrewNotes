@@ -48,14 +48,25 @@ router.put("/:id", (req, res) => {
 		.catch((err) => res.status(204).json({ success: false }));
 });
 
-// @route DELETE api/recipes/:id
-// @desc Delete a Recipe
-// @access Public [to do with authentication / authorization]
+/* 
+@route DELETE api/recipes/:id
+@desc Delete a Recipe
+@access Public [to do with authentication / authorization]
+*/
 router.delete("/:id", (req, res) => {
 	console.log(req.body);
 	Recipe.findById(req.params.id)
 		.then((recipe) => recipe.remove().then(() => res.json({ success: true })))
 		.catch((err) => res.status(204).json({ success: false }));
+});
+
+/* 
+@route GET Individual Recipe api/recipes/:id
+@desc Get All Recipes
+@access Public for now
+*/
+router.get("/:id", (req, res) => {
+	Recipe.findById(req.params.id).then((recipe) => res.json(recipe));
 });
 
 module.exports = router;

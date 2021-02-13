@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import RecipeCard from "./RecipeCard";
+import axios from "axios";
+// import { useParams } from "react-router-dom";
+
 const StyledGridCard = styled.div`
-	background-color: blue;
+	/* background-color: blue; */
 	/* width: 300px; */
 	display: grid;
 	grid-template-areas:
 		"a b"
 		"c d";
-
-	&:hover {
-		transform: scale(1.1);
-	}
 
 	.method {
 		grid-area: "a";
@@ -27,41 +25,40 @@ const StyledGridCard = styled.div`
 	}
 `;
 
-export default function RecipeGridCard({ recipe }) {
-	const {
-		brewMethod,
-		coffeeOrigin,
-		roaster,
-		coffeeVariety,
-		process,
-		steps,
-		tastingNotes,
-	} = recipe;
-	const handleClick = (id) => {
-		<RecipeCard recipe={recipe} />;
-		console.log(roaster);
+function RecipeGridCard(props) {
+	const [recipe, setRecipe] = useState([]);
+
+	const { id } = props.match.params;
+
+	useEffect(() => {
+		getRecipes();
+	}, []);
+
+	const getRecipes = () => {
+		axios
+			.get(`/api/recipes/${id}`)
+			.then((res) => {
+				setRecipe(res.data);
+				console.log(Object.values(res.data));
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	};
 
-	// const formattedDate = (date) => {
-	// 	return date.getDate();
-	// };
 	return (
-		<StyledGridCard key={recipe._id} onClick={handleClick}>
-			<p className='method'>Method: {brewMethod}</p>
-			<p className='roaster'>Roaster: {roaster}</p>
-			<p className='origin'>Origin: {coffeeOrigin}</p>
-			<p className='variety'>Variety: {coffeeVariety}</p>
-			{/* <p className='date'>Variety: {formattedDate(date)}</p> */}
-			{/* <p>Process: {recipe.process}</p>
-			<ol>
-				{recipe.steps.map((step) => (
-					<li key={step}>{step}</li>
-				))}
-			</ol>
-			<p>
-				Tasting Notes:
-				{recipe.tastingNotes}
-			</p> */}
+		<StyledGridCard>
+			{/* <h3>{recipeID}</h3> */}
+			<p>Hello</p>
+			<h1>This is where I want to get</h1>
+			<p>Hello</p>
+			<p className='method'>Method: {recipe.brewMethod}</p>
+			<p className='roaster'>Roaster: {recipe.roaster}</p>
+			<p className='origin'>Origin: {recipe.coffeeOrigin}</p>
+			<p className='variety'>Variety: {recipe.coffeeVariety}</p>
+			<p className='variety'>ID: {recipe._id}</p>
 		</StyledGridCard>
 	);
 }
+
+export default RecipeGridCard;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import RecipeGridCard from "./RecipeGridCard";
+import { Link } from "react-router-dom";
 
 const StyledGrid = styled.ul`
 	list-style-type: none;
@@ -16,7 +16,7 @@ const StyledItem = styled.li`
 	border-radius: 10px;
 `;
 
-export default function RecipesGrid() {
+function RecipesGrid() {
 	const [recipeEntries, setRecipeEntries] = useState([]);
 
 	useEffect(() => {
@@ -34,21 +34,29 @@ export default function RecipesGrid() {
 			});
 	};
 
-	const handleNewRecipe = () => {
-		console.log("Hello");
-	};
+	// const { path, url } = useRouteMatch();
+	// console.log("url", url);
+	// console.log("path", path);
 
 	return (
 		<div>
 			<h1>List of recipes</h1>
-			<button onClick={handleNewRecipe}>Add Recipe</button>
+
 			<StyledGrid>
 				{recipeEntries.map((recipe) => (
 					<StyledItem key={recipe._id}>
-						<RecipeGridCard recipe={recipe} />
+						<p className='method'>Method: {recipe.brewMethod}</p>
+						<p className='roaster'>Roaster: {recipe.roaster}</p>
+						<p className='origin'>Origin: {recipe.coffeeOrigin}</p>
+						<p className='variety'>Variety: {recipe.coffeeVariety}</p>
+						<p className='variety'>ID: {recipe._id}</p>
+
+						<Link to={`grid/${recipe._id}`}>Link</Link>
 					</StyledItem>
 				))}
 			</StyledGrid>
 		</div>
 	);
 }
+
+export default RecipesGrid;
