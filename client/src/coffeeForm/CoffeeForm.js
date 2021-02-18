@@ -1,14 +1,25 @@
 import React from "react";
 import axios from "axios";
 import { Formik, Field, Form, FieldArray } from "formik";
+import styled from "styled-components";
+
+const StyledForm = styled.div`
+	.form {
+		display: flex;
+		flex-direction: column;
+		width: 350px;
+	}
+`;
 
 function RecipeForm() {
 	const initialValues = {
 		brewMethod: "",
-		coffeeOrigin: "",
+		coffeeName: "",
 		roaster: "",
 		coffeeVariety: "",
 		process: "",
+		waterAmount: "",
+		coffeeAmount: "",
 		steps: [""],
 		tastingNotes: "",
 	};
@@ -30,36 +41,17 @@ function RecipeForm() {
 	};
 
 	return (
-		<div>
+		<StyledForm>
 			<h1>Add a New Recipe</h1>
 			<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
 				{({ values }) => (
-					<Form
-						style={{
-							display: "flex",
-							width: "400px",
-							flexDirection: "column",
-							margin: "0 auto",
-						}}
-					>
-						<label htmlFor='brewMethod'>Brew Method </label>
+					<Form className='form'>
+						<label htmlFor='coffeeName'>Origin/Name </label>
 						<Field
-							id='brewMethod'
-							name='brewMethod'
-							as='select'
-							placeholder='Method'
-						>
-							<option value='Drip'>Drip</option>
-							<option value='Espresso'>Espresso</option>
-							<option value='Honey'>Pour Over</option>
-							<option value='French Press'>French Press</option>
-							<option value='Aeropress'>Aeropress</option>
-							<option value='Chemex'>Chemex</option>
-							<option value='Siphon'>Siphon</option>
-							<option value='Other'>Other</option>
-						</Field>
-						<label htmlFor='coffeeOrigin'>Origin </label>
-						<Field id='coffeeOrigin' name='coffeeOrigin' placeholder='Origin' />
+							id='coffeeName'
+							name='coffeeName'
+							placeholder='Origin or Name'
+						/>
 						<label htmlFor='roaster'>Roaster </label>
 						<Field id='roaster' name='roaster' placeholder='Roaster' />
 						<label htmlFor='coffeeVariety'>Variety </label>
@@ -80,6 +72,35 @@ function RecipeForm() {
 							<option value='honey'>Honey</option>
 							<option value='anaerobic'>Anaerobic</option>
 						</Field>
+						<label htmlFor='brewMethod'>Brew Method </label>
+						<Field
+							id='brewMethod'
+							name='brewMethod'
+							as='select'
+							placeholder='Method'
+						>
+							<option value='Drip'>Drip</option>
+							<option value='Espresso'>Espresso</option>
+							<option value='Honey'>Pour Over</option>
+							<option value='French Press'>French Press</option>
+							<option value='Aeropress'>Aeropress</option>
+							<option value='Chemex'>Chemex</option>
+							<option value='Siphon'>Siphon</option>
+							<option value='Other'>Other</option>
+						</Field>
+						<label htmlFor='waterAmount'>Amount of Water (g)</label>
+						<Field
+							id='waterAmount'
+							name='waterAmount'
+							placeholder='Water Amount'
+						/>
+						<label htmlFor='coffeeAmount'>Amount of Coffee (g)</label>
+						<Field
+							id='coffeeAmount'
+							name='coffeeAmount'
+							placeholder='Coffee Amount'
+						/>
+
 						<FieldArray name='steps'>
 							{({ insert, remove, push }) => (
 								<div>
@@ -136,7 +157,7 @@ function RecipeForm() {
 					</Form>
 				)}
 			</Formik>
-		</div>
+		</StyledForm>
 	);
 }
 export default RecipeForm;

@@ -34,10 +34,6 @@ function RecipesGrid() {
 			});
 	};
 
-	// const { path, url } = useRouteMatch();
-	// console.log("url", url);
-	// console.log("path", path);
-
 	return (
 		<div>
 			<h1>List of recipes</h1>
@@ -45,13 +41,12 @@ function RecipesGrid() {
 			<StyledGrid>
 				{recipeEntries.map((recipe) => (
 					<StyledItem key={recipe._id}>
-						<p className='method'>Method: {recipe.brewMethod}</p>
-						<p className='roaster'>Roaster: {recipe.roaster}</p>
-						<p className='origin'>Origin: {recipe.coffeeOrigin}</p>
-						<p className='variety'>Variety: {recipe.coffeeVariety}</p>
-						<p className='variety'>ID: {recipe._id}</p>
-
-						<Link to={`grid/${recipe._id}`}>Link</Link>
+						<Link to={`grid/${recipe._id}`}>
+							<p className='method'>Method: {recipe.brewMethod}</p>
+							<p className='roaster'>Roaster: {recipe.roaster}</p>
+							<p className='origin'>Origin: {recipe.coffeeOrigin}</p>
+							<p className='variety'>Variety: {recipe.coffeeVariety}</p>
+						</Link>
 					</StyledItem>
 				))}
 			</StyledGrid>

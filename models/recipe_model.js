@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const RecipeSchema = new Schema({
-	date: {
+	created: {
 		type: Date,
 		default: Date.now,
 	},
@@ -15,13 +15,19 @@ const RecipeSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	coffeeOrigin: {
+	coffeeName: {
 		type: String,
 	},
 	coffeeVariety: {
 		type: String,
 	},
 	process: {
+		type: String,
+	},
+	waterAmount: {
+		type: String,
+	},
+	coffeeAmount: {
 		type: String,
 	},
 	steps: {

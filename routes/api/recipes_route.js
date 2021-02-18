@@ -24,10 +24,12 @@ router.post("/", (req, res) => {
 	const newRecipe = new Recipe({
 		brewMethod: req.body.brewMethod,
 		roaster: req.body.roaster,
-		coffeeOrigin: req.body.coffeeOrigin,
+		coffeeName: req.body.coffeeName,
 		coffeeVariety: req.body.coffeeVariety,
 		process: req.body.process,
 		tastingNotes: req.body.tastingNotes,
+		waterAmount: req.body.waterAmount,
+		coffeeAmount: req.body.coffeeAmount,
 		steps: req.body.steps,
 	});
 

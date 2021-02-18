@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
-// import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const StyledGridCard = styled.div`
-	/* background-color: blue; */
 	/* width: 300px; */
 	display: grid;
-	grid-template-areas:
+	/* grid-template-areas:
 		"a b"
 		"c d";
 
@@ -22,7 +21,7 @@ const StyledGridCard = styled.div`
 	}
 	.variety {
 		grid-area: "d";
-	}
+	} */
 `;
 
 function RecipeGridCard(props) {
@@ -32,31 +31,35 @@ function RecipeGridCard(props) {
 
 	useEffect(() => {
 		getRecipes();
-	}, []);
+	});
 
 	const getRecipes = () => {
 		axios
 			.get(`/api/recipes/${id}`)
 			.then((res) => {
 				setRecipe(res.data);
-				console.log(Object.values(res.data));
+				console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	};
 
+	const { brewMethod, roaster, coffeeOrigin, coffeeVariety, created } = recipe;
+
+	const [month, day] = new Date(created).toLocaleDateString("en-US").split("/");
+
 	return (
 		<StyledGridCard>
-			{/* <h3>{recipeID}</h3> */}
-			<p>Hello</p>
-			<h1>This is where I want to get</h1>
-			<p>Hello</p>
-			<p className='method'>Method: {recipe.brewMethod}</p>
-			<p className='roaster'>Roaster: {recipe.roaster}</p>
-			<p className='origin'>Origin: {recipe.coffeeOrigin}</p>
-			<p className='variety'>Variety: {recipe.coffeeVariety}</p>
-			<p className='variety'>ID: {recipe._id}</p>
+			<p className='method'>Method: {brewMethod}</p>
+			<p className='roaster'>Roaster: {roaster}</p>
+			<p className='origin'>Origin: {coffeeOrigin}</p>
+			<p className='variety'>Variety: {coffeeVariety}</p>
+			<p className='variety'>
+				Date: {month}/{day}
+			</p>
+
+			<Link to='/grid'>Back To Coffee Grid</Link>
 		</StyledGridCard>
 	);
 }
