@@ -1,25 +1,28 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-
-const recipes = require("./routes/api/recipes_route");
-
 const app = express();
+const dotenv = require("dotenv");
 
-//Bodyparser middleware
-app.use(bodyParser.json());
-
-//DB Config
-const db = require("./config/keys").mongoURI;
+//routes
+const recipes = require("./routes/api/recipes_route");
+const authRoute = require("./routes/auth.routes");
+dotenv.config();
 
 //Connect to Mongo
 mongoose
-	.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+	.connect(process.env.DB_CONNECT, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
 	.then(() => console.log("MongoDB Connected..."))
 	.catch((err) => console.log(err));
 
+// middleware
+app.use(express.json());
+
 //Use routes
 app.use("/api/recipes/", recipes);
+app.use("/api/user", authRoute);
 
 const port = process.env.PORT || 5000;
 
