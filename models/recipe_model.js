@@ -37,6 +37,9 @@ const RecipeSchema = new Schema({
 	tastingNotes: {
 		type: String,
 	},
+	userid: {
+		type: String,
+	},
 });
 
 module.exports = Recipe = mongoose.model("recipe", RecipeSchema);

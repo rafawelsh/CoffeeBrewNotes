@@ -1,5 +1,5 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
+const verify = require("../verifyToken");
 
 // Recipe Model
 const Recipe = require("../../models/recipe_model");
@@ -15,12 +15,20 @@ router.get("/", (req, res) => {
 		.then((recipes) => res.json(recipes));
 });
 
-/* 
+router.get("/whoami", verify, (req, res) => {
+	res.send(req.user);
+});
+
+/*
 @route POST api/items
 @desc Create new recipe
 @access Public for now
 */
-router.post("/", (req, res) => {
+router.post("/", verify, (req, res) => {
+	//find out who the token is coming from
+	const { _id } = req.user;
+	console.log(`This is the user ${_id}`);
+
 	const newRecipe = new Recipe({
 		brewMethod: req.body.brewMethod,
 		roaster: req.body.roaster,
@@ -31,6 +39,7 @@ router.post("/", (req, res) => {
 		waterAmount: req.body.waterAmount,
 		coffeeAmount: req.body.coffeeAmount,
 		steps: req.body.steps,
+		userid: _id,
 	});
 
 	newRecipe.save().then((recipe) => res.json(recipe));
