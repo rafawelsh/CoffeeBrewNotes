@@ -13,8 +13,10 @@ Here is my project roadmap [on Notion](https://www.notion.so/Coffee-App-38a19ea5
 - [x] Start MongoDB
 - [x] Craete API endpoints for Recipe View
 - [ ] Create simple wireframe for the components in the project
-- [ ] Create Recipe Grid to display all recipes
+- [x] Create Recipe Grid to display all recipes
 - [ ] Create Filter Comonponent to lookup recipes
+- [x] Add JWT to application
+- [ ] Create Protected routes for coffee recipes and users
 
 ## Running this Project
 
