@@ -2,7 +2,7 @@ const router = require("express").Router();
 const verify = require("../verifyToken");
 
 // Recipe Model
-const Recipe = require("../../models/recipe_model");
+const Recipe = require("../../models/Recipe.model");
 
 /* 
 @route GET api/items
