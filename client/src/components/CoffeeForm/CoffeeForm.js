@@ -26,6 +26,7 @@ function RecipeForm() {
 
 	const handleOnSubmit = (values, actions) => {
 		axios({
+			headers: { "auth-token": localStorage.getItem("token") },
 			method: "POST",
 			url: "/api/recipes",
 			data: values,
