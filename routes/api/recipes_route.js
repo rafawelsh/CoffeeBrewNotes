@@ -15,6 +15,18 @@ router.get("/", (req, res) => {
 		.then((recipes) => res.json(recipes));
 });
 
+/* 
+@route GET api/items/:id
+@desc Get All Recipes from specific user
+@access Private
+*/
+router.get("/:_id", verify, (req, res) => {
+	const { _id } = req.user;
+	Recipe.find({ userid: _id })
+		.then((recipes) => res.json(recipes))
+		.catch((err) => res.status(204).json({ success: false }));
+});
+
 router.get("/whoami", verify, (req, res) => {
 	res.send(req.user);
 });
