@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Formik, Field, Form } from "formik";
 
-function LoginForm() {
+function RegisterForm() {
 	const initialValues = {
 		email: "",
 		password: "",
@@ -11,7 +11,7 @@ function LoginForm() {
 	const handleOnSubmit = (values, actions) => {
 		axios({
 			method: "POST",
-			url: "/api/user/login",
+			url: "/api/user/register",
 			data: values,
 		})
 			.then((response) => {
@@ -28,7 +28,7 @@ function LoginForm() {
 	return (
 		<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
 			<Form className='form-inner'>
-				<h2>Login</h2>
+				<h2>Register</h2>
 				<div className='form-group'>
 					<label htmlFor='email'>Email</label>
 					<Field type='text' name='email' id='email' />
@@ -37,10 +37,10 @@ function LoginForm() {
 					<label htmlFor='password'>Password</label>
 					<Field type='password' name='password' id='password' />
 				</div>
-				<button type='submit'>Login</button>
+				<button type='submit'>Register</button>
 			</Form>
 		</Formik>
 	);
 }
 
-export default LoginForm;
+export default RegisterForm;

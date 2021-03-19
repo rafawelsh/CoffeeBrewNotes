@@ -2,9 +2,10 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body {
+    box-sizing: border-box;
     margin: 0 auto;
     padding: 0 auto;
-    background: #FEE5DB;
+    background-color: red;
     font-family: 'Roboto Slab', serif;
   }
 `;

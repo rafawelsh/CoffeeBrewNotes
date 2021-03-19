@@ -6,9 +6,9 @@ import {
 	NavMenu,
 	NavBtn,
 	NavBtnLink,
-} from "./NavBarElements";
+} from "../../styles/NavBarStyles";
 
-const NavBar = () => {
+const NavBar = (loggedIn) => {
 	return (
 		<>
 			<Nav>
@@ -20,16 +20,25 @@ const NavBar = () => {
 					<NavLink exact to='/new-recipe' activeStyle>
 						New Recipe
 					</NavLink>
-					<NavLink exact to='/grid'>
+					<NavLink exact to='/grid' activeStyle>
 						Grid
 					</NavLink>
-					<NavLink exact to='/home'>
-						Home
-					</NavLink>
+					<NavLink to='/resources'>Resources</NavLink>
 				</NavMenu>
-				<NavBtn>
-					<NavBtnLink to='/login'>Sign In</NavBtnLink>
-				</NavBtn>
+				{!loggedIn ? (
+					<>
+						<NavBtn>
+							<NavBtnLink to='/login'>Sign In</NavBtnLink>
+						</NavBtn>
+						<NavBtn>
+							<NavBtnLink to='/register'>Register</NavBtnLink>
+						</NavBtn>
+					</>
+				) : (
+					<NavBtn>
+						<NavBtnLink to='/register'>RAFA HERE</NavBtnLink>
+					</NavBtn>
+				)}
 			</Nav>
 		</>
 	);
