@@ -1,11 +1,11 @@
 import { createGlobalStyle } from "styled-components";
-
+import { colors } from "./MediaQueries";
 const GlobalStyle = createGlobalStyle`
   body {
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0 auto;
-    background-color: red;
+    background-color: ${colors.backgroundLight};
     font-family: 'Roboto Slab', serif;
   }
 `;

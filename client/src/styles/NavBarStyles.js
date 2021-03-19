@@ -1,26 +1,19 @@
 import { NavLink as Link } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaPlus } from "react-icons/fa";
 import styled from "styled-components";
-import { device } from "./MediaQueries";
+import { device, colors } from "./MediaQueries";
 
 export const Nav = styled.nav`
-	background: #000;
+	background: ${colors.backgroundLight};
 	height: 89px;
 	display: flex;
 	justify-content: space-between;
 	padding: 0.5rem calc((100vw - 1000px) / 2);
 	z-index: 10;
-	@media ${device.laptop} {
-		color: red;
-	}
-
-	@media ${device.mobileM} {
-		color: purple;
-	}
 `;
 
 export const NavLink = styled(Link)`
-	color: #fff;
+	color: ${colors.highlight};
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -29,14 +22,14 @@ export const NavLink = styled(Link)`
 	cursor: pointer;
 
 	&.active {
-		color: #15cdfc;
+		color: ${colors.highlight};
 	}
 `;
 
 // //import icons for this?
 export const Bars = styled(FaBars)`
 	display: none;
-	color: #fff;
+	color: ${colors.highlight};
 
 	@media screen and (max-width: 768px) {
 		display: block;

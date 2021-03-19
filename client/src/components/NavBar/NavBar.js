@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	Nav,
 	NavLink,
@@ -8,14 +8,16 @@ import {
 	NavBtnLink,
 } from "../../styles/NavBarStyles";
 
-const NavBar = (loggedIn) => {
+const NavBar = ({ toggle }) => {
 	return (
 		<>
 			<Nav>
 				<NavLink exact to='/' className='logo'>
 					CoffeeBrewNotes
 				</NavLink>
-				<Bars />
+
+				<Bars onClick={toggle} />
+
 				<NavMenu>
 					<NavLink exact to='/new-recipe' activeStyle>
 						New Recipe
@@ -25,7 +27,7 @@ const NavBar = (loggedIn) => {
 					</NavLink>
 					<NavLink to='/resources'>Resources</NavLink>
 				</NavMenu>
-				{!loggedIn ? (
+				{/* {!loggedIn ? (
 					<>
 						<NavBtn>
 							<NavBtnLink to='/login'>Sign In</NavBtnLink>
@@ -38,7 +40,7 @@ const NavBar = (loggedIn) => {
 					<NavBtn>
 						<NavBtnLink to='/register'>RAFA HERE</NavBtnLink>
 					</NavBtn>
-				)}
+				)} */}
 			</Nav>
 		</>
 	);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar/NavBar";
+import SideBar from "./components/NavBar/Sidebar";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import CoffeeForm from "./components/CoffeeForm/CoffeeForm";
@@ -8,15 +9,20 @@ import RecipesGrid from "./components/RecipeView/RecipesGrid";
 import RecipeGridCard from "./components/RecipeView/RecipeGridCard";
 import GlobalStyle from "./styles/GlobalStyles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Sidebar from "./components/NavBar/Sidebar";
 
 function App() {
 	// const loggedIn = localStorage.getItem("token");
-
+	const [isOpen, setIsOpen] = useState(false);
+	const toggle = () => {
+		setIsOpen(!isOpen);
+	};
 	return (
 		<Router>
 			<div>
 				<GlobalStyle />
-				<NavBar />
+				<Sidebar isOpen={isOpen} toggle={toggle} />
+				<NavBar toggle={toggle} />
 			</div>
 
 			<Switch>
