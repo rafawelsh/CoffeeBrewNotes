@@ -24,7 +24,7 @@ export const colors = {
 	secondaryText: "#FDDAD0",
 	backgroundLight: "#FFFCF0",
 	secondaryBackground: "#02424A",
-	backgroundDark: "",
+	backgroundDark: "#02424A",
 	primary: "",
 	highlight: "#F7754F",
 };
