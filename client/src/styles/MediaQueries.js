@@ -20,11 +20,10 @@ export const device = {
 };
 
 export const colors = {
-	textLight: "#15807A",
+	textColor: "#242424",
+	textHeader: "#15807A",
 	secondaryText: "#FDDAD0",
 	backgroundLight: "#FFFCF0",
-	secondaryBackground: "#02424A",
 	backgroundDark: "#02424A",
-	primary: "",
 	highlight: "#F7754F",
 };

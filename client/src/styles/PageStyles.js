@@ -7,7 +7,7 @@ export const PageContainer = styled.main`
 
 export const PageWrapper = styled.div`
 	margin: 0 auto;
-	color: ${colors.highlight};
+	color: ${colors.highlikght};
 	background: ${colors.textLight};
 	max-height: 100vh;
 	height: 100vh;

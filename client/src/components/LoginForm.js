@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { Formik, Field, Form } from "formik";
+import { Formik } from "formik";
+import { PageContainer } from "../styles/PageStyles";
+import { Form, FormWrapper, Input, Label } from "../styles/FormStyles";
 
 function LoginForm() {
 	const initialValues = {
@@ -26,20 +28,24 @@ function LoginForm() {
 	};
 
 	return (
-		<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
-			<Form className='form-inner'>
-				<h2>Login</h2>
-				<div className='form-group'>
-					<label htmlFor='email'>Email</label>
-					<Field type='text' name='email' id='email' />
-				</div>
-				<div className='form-group'>
-					<label htmlFor='password'>Password</label>
-					<Field type='password' name='password' id='password' />
-				</div>
-				<button type='submit'>Login</button>
-			</Form>
-		</Formik>
+		<PageContainer>
+			<FormWrapper>
+				<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+					<Form className='form-inner'>
+						<h2>Login</h2>
+						<div className='form-group'>
+							<Label htmlFor='email'>Email</Label>
+							<Input type='text' name='email' id='email' />
+						</div>
+						<div className='form-group'>
+							<Label htmlFor='password'>Password</Label>
+							<Input type='password' name='password' id='password' />
+						</div>
+						<button type='submit'>Login</button>
+					</Form>
+				</Formik>
+			</FormWrapper>
+		</PageContainer>
 	);
 }
 
