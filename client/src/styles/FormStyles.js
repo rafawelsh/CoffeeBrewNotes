@@ -6,6 +6,7 @@ export const FormWrapper = styled.div`
 	background: ${colors.backgroundLight};
 	height: 90vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 `;
@@ -35,6 +36,7 @@ export const Input = styled.input`
 	background: ${colors.highlight};
 	height: 2rem;
 	width: 80vw;
+	max-width: 400px;
 `;
 
 export const Button = styled.button`
@@ -46,6 +48,11 @@ export const Button = styled.button`
 	cursor: pointer;
 
 	&:hover {
-		transform: scale(0.8);
+		transform: scale(1.1);
 	}
+`;
+
+export const AddStepButton = styled(Button)`
+	font-size: 1.25rem;
+	padding: 0.5rem;
 `;

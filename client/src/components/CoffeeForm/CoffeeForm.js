@@ -1,15 +1,16 @@
 import React from "react";
 import axios from "axios";
-import { Formik, Field, Form, FieldArray } from "formik";
+import { Formik, FieldArray } from "formik";
 import styled from "styled-components";
-
-const StyledForm = styled.div`
-	.form {
-		display: flex;
-		flex-direction: column;
-		width: 350px;
-	}
-`;
+import {
+	Form,
+	FormWrapper,
+	FormGroup,
+	Input,
+	Label,
+	Button,
+	AddStepButton,
+} from "../../styles/FormStyles";
 
 function RecipeForm() {
 	const initialValues = {
@@ -42,27 +43,27 @@ function RecipeForm() {
 	};
 
 	return (
-		<StyledForm>
+		<FormWrapper>
 			<h1>Add a New Recipe</h1>
 			<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
 				{({ values }) => (
 					<Form className='form'>
-						<label htmlFor='coffeeName'>Origin/Name </label>
-						<Field
+						<Label htmlFor='coffeeName'>Origin/Name </Label>
+						<Input
 							id='coffeeName'
 							name='coffeeName'
 							placeholder='Origin or Name'
 						/>
-						<label htmlFor='roaster'>Roaster </label>
-						<Field id='roaster' name='roaster' placeholder='Roaster' />
-						<label htmlFor='coffeeVariety'>Variety </label>
-						<Field
+						<Label htmlFor='roaster'>Roaster </Label>
+						<Input id='roaster' name='roaster' placeholder='Roaster' />
+						<Label htmlFor='coffeeVariety'>Variety </Label>
+						<Input
 							id='coffeeVariety'
 							name='coffeeVariety'
 							placeholder='Variety'
 						/>
-						<label htmlFor='process'>Process </label>
-						<Field
+						<Label htmlFor='process'>Process </Label>
+						<Input
 							id='process'
 							name='process'
 							as='select'
@@ -72,9 +73,9 @@ function RecipeForm() {
 							<option value='Washed'>Washed</option>
 							<option value='honey'>Honey</option>
 							<option value='anaerobic'>Anaerobic</option>
-						</Field>
-						<label htmlFor='brewMethod'>Brew Method </label>
-						<Field
+						</Input>
+						<Label htmlFor='brewMethod'>Brew Method </Label>
+						<Input
 							id='brewMethod'
 							name='brewMethod'
 							as='select'
@@ -88,15 +89,15 @@ function RecipeForm() {
 							<option value='Chemex'>Chemex</option>
 							<option value='Siphon'>Siphon</option>
 							<option value='Other'>Other</option>
-						</Field>
-						<label htmlFor='waterAmount'>Amount of Water (g)</label>
-						<Field
+						</Input>
+						<Label htmlFor='waterAmount'>Amount of Water (g)</Label>
+						<Input
 							id='waterAmount'
 							name='waterAmount'
 							placeholder='Water Amount'
 						/>
-						<label htmlFor='coffeeAmount'>Amount of Coffee (g)</label>
-						<Field
+						<Label htmlFor='coffeeAmount'>Amount of Coffee (g)</Label>
+						<Input
 							id='coffeeAmount'
 							name='coffeeAmount'
 							placeholder='Coffee Amount'
@@ -117,48 +118,48 @@ function RecipeForm() {
 												}}
 											>
 												<div className='col'>
-													<label htmlFor={`steps.${index}`}>
+													<Label htmlFor={`steps.${index}`}>
 														Step {index + 1}
-													</label>
-													<Field
+													</Label>
+													<Input
 														name={`steps.${index}`}
 														placeholder='Add a step'
 														type='text'
 													/>
 												</div>
 												<div className='col'>
-													<button
-														type='button'
+													<Button
+														type='Button'
 														className='secondary'
 														onClick={() => remove(index)}
 													>
 														X
-													</button>
+													</Button>
 												</div>
 											</div>
 										))}
-									<button
-										type='button'
+									<AddStepButton
+										type='Button'
 										className='secondary'
 										onClick={() => push("")}
 									>
 										Add a Step
-									</button>
+									</AddStepButton>
 								</div>
 							)}
 						</FieldArray>
-						<label htmlFor='tastingNotes'>Notes</label>
-						<Field
+						<Label htmlFor='tastingNotes'>Notes</Label>
+						<Input
 							id='tastingNotes'
 							name='tastingNotes'
 							placeholder='Varietal'
 							as='textarea'
 						/>
-						<button type='submit'>Enter Recipe</button>
+						<Button type='submit'>Enter Recipe</Button>
 					</Form>
 				)}
 			</Formik>
-		</StyledForm>
+		</FormWrapper>
 	);
 }
 export default RecipeForm;

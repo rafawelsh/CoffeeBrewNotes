@@ -48,7 +48,7 @@ function RegisterForm() {
 							<Label htmlFor='password'>Password</Label>
 							<Input type='password' name='password' id='password' />
 						</FormGroup>
-						<button type='submit'>Register</button>
+						<Button type='submit'>Register</Button>
 					</Form>
 				</Formik>
 			</FormWrapper>
