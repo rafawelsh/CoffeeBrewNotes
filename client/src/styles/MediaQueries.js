@@ -23,7 +23,8 @@ export const colors = {
 	textColor: "#242424",
 	textHeader: "#15807A",
 	secondaryText: "#FDDAD0",
-	backgroundLight: "#FFFCF0",
+	backgroundLight: "#E7E0D6",
 	backgroundDark: "#02424A",
-	highlight: "#F7754F",
+	divBackground: "#F2F2F2",
+	highlight: "#F3A25D",
 };

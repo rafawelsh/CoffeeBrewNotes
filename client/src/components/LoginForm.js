@@ -39,15 +39,12 @@ function LoginForm() {
 			<FormWrapper>
 				<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
 					<Form className='form-inner'>
-						<h2>Login</h2>
-						<FormGroup className='form-group'>
-							<Label htmlFor='email'>Email</Label>
-							<Input type='text' name='email' id='email' />
-						</FormGroup>
-						<FormGroup className='form-group'>
-							<Label htmlFor='password'>Password</Label>
-							<Input type='password' name='password' id='password' />
-						</FormGroup>
+						<h1>Login</h1>
+						<Label htmlFor='email'>Email</Label>
+						<Input type='email' name='email' id='email' />
+						<Label htmlFor='password'>Password</Label>
+						<Input type='password' name='password' id='password' />
+
 						<Button type='submit'>Login</Button>
 					</Form>
 				</Formik>

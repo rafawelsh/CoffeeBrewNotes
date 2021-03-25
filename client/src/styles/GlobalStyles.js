@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 import { colors } from "./MediaQueries";
 const GlobalStyle = createGlobalStyle`
+  
+  html{
+    height:100%;
+  }
+  
   body {
     box-sizing: border-box;
     margin: 0 auto;
