@@ -1,11 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { Formik, FieldArray } from "formik";
-import styled from "styled-components";
+import { Formik, Form, FieldArray } from "formik";
 import {
-	Form,
 	FormWrapper,
-	FormGroup,
 	Input,
 	Label,
 	Button,

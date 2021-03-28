@@ -1,9 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { Formik } from "formik";
+import { Formik, Form } from "formik";
 import { PageContainer } from "../styles/PageStyles";
 import {
-	Form,
 	FormWrapper,
 	FormGroup,
 	Input,
