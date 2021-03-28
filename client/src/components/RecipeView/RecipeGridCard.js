@@ -31,14 +31,17 @@ function RecipeGridCard(props) {
 
 	useEffect(() => {
 		getRecipes();
-	});
+	}, []);
 
 	const getRecipes = () => {
-		axios
-			.get(`/api/recipes/${id}`)
+		axios({
+			headers: { "auth-token": localStorage.getItem("token") },
+			method: "GET",
+			url: `/api/recipes/${id}`,
+		})
 			.then((res) => {
 				setRecipe(res.data);
-				console.log(res.data);
+				// console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err);

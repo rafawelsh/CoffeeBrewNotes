@@ -12,11 +12,14 @@ function RecipesGrid() {
 	}, []);
 
 	const getRecipeEntries = () => {
-		axios
-			.get("/api/recipes/")
+		axios({
+			headers: { "auth-token": localStorage.getItem("token") },
+			method: "GET",
+			url: "/api/recipes",
+		})
 			.then((res) => {
 				setRecipeEntries(Object.values(res.data));
-				console.log(res.data);
+				// console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err);

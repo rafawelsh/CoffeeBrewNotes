@@ -1,9 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { Formik } from "formik";
+import { Formik, Form } from "formik";
 import { PageContainer } from "../styles/PageStyles";
 import {
-	Form,
 	FormWrapper,
 	FormGroup,
 	Input,
@@ -44,7 +43,6 @@ function LoginForm() {
 						<Input type='email' name='email' id='email' />
 						<Label htmlFor='password'>Password</Label>
 						<Input type='password' name='password' id='password' />
-
 						<Button type='submit'>Login</Button>
 					</Form>
 				</Formik>

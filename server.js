@@ -4,7 +4,7 @@ const app = express();
 const dotenv = require("dotenv");
 
 //routes
-const recipes = require("./routes/api/recipes_route");
+const recipes = require("./routes/api/recipes.route");
 const authRoute = require("./routes/auth.routes");
 dotenv.config();
 

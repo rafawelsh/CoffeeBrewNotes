@@ -5,22 +5,11 @@ const verify = require("../verifyToken");
 const Recipe = require("../../models/Recipe.model");
 
 /* 
-@route GET api/items
+@route GET api/grid
 @desc Get All Recipes
 @access Public for now
 */
-router.get("/", (req, res) => {
-	Recipe.find()
-		.sort({ date: -1 })
-		.then((recipes) => res.json(recipes));
-});
-
-/* 
-@route GET api/items/:id
-@desc Get All Recipes from specific user
-@access Private
-*/
-router.get("/:_id", verify, (req, res) => {
+router.get("/", verify, (req, res) => {
 	const { _id } = req.user;
 	Recipe.find({ userid: _id })
 		.sort({ date: -1 })
@@ -28,9 +17,18 @@ router.get("/:_id", verify, (req, res) => {
 		.catch((err) => res.status(204).json({ success: false }));
 });
 
-router.get("/whoami", verify, (req, res) => {
-	res.send(req.user);
-});
+/* 
+@route GET api/grid/:id
+@desc Get All Recipes from specific user
+@access Private
+*/
+// router.get("/:_id", verify, (req, res) => {
+// 	const { _id } = req.user;
+// 	Recipe.find({ userid: _id })
+// 		.sort({ date: -1 })
+// 		.then((recipes) => res.json(recipes))
+// 		.catch((err) => res.status(204).json({ success: false }));
+// });
 
 /*
 @route POST api/items

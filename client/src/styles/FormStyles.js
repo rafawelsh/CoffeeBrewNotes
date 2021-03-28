@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { colors, devices } from "./MediaQueries";
+import FilteredPropsInputField from "../components/FIlteredPropsInputField";
 
 export const FormWrapper = styled.div`
 	margin: 0 auto;
@@ -46,7 +47,7 @@ export const Label = styled.label`
 	font-size: 1.5rem;
 `;
 
-export const Input = styled.input`
+export const Input = styled(FilteredPropsInputField)`
 	width: 100%;
 	${SharedFormStyles}
 `;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar/NavBar";
-import SideBar from "./components/NavBar/Sidebar";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import CoffeeForm from "./components/CoffeeForm/CoffeeForm";
