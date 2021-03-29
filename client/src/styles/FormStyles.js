@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
-import { colors, devices } from "./MediaQueries";
+import { colors } from "./MediaQueries";
 import FilteredPropsInputField from "../components/FIlteredPropsInputField";
 
-export const FormWrapper = styled.div`
+export const SharedFormContainer = css`
 	margin: 0 auto;
 	background: ${colors.backgroundLight};
 	height: 90vh;
@@ -13,8 +13,18 @@ export const FormWrapper = styled.div`
 	padding: 0 1rem;
 `;
 
-export const Form = styled.form`
+export const FormContainer = styled.div`
+	${SharedFormContainer}
+`;
+
+export const RecipeFormContainer = styled.div`
+	${SharedFormContainer};
+	height: 1200px;
+`;
+
+export const FormWrapper = styled.div`
 	background: ${colors.divBackground};
+	height: fit-content;
 	width: 100%;
 	max-width: 700px;
 	border-radius: 10px;
@@ -34,11 +44,12 @@ export const FormGroup = styled.div`
 
 export const SharedFormStyles = css`
 	background-color: #eee;
+	color: ${colors.textHeader};
 	height: 2rem;
 	border-radius: 5px;
 	border: 1px solid #ddd;
 	margin: 10px 0 20px 0;
-	padding: 1rem 3rem;
+	padding: 1rem 2rem;
 	box-sizing: border-box;
 `;
 
@@ -48,8 +59,8 @@ export const Label = styled.label`
 `;
 
 export const Input = styled(FilteredPropsInputField)`
-	width: 100%;
 	${SharedFormStyles}
+	width: 100%;
 `;
 
 export const Button = styled.button`

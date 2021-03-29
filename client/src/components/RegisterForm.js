@@ -3,6 +3,7 @@ import axios from "axios";
 import { Formik, Form } from "formik";
 import { PageContainer } from "../styles/PageStyles";
 import {
+	FormContainer,
 	FormWrapper,
 	FormGroup,
 	Input,
@@ -35,22 +36,24 @@ function RegisterForm() {
 
 	return (
 		<PageContainer>
-			<FormWrapper>
-				<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
-					<Form className='form-inner'>
-						<h2>Register</h2>
-						<FormGroup className='form-group'>
-							<Label htmlFor='email'>Email</Label>
-							<Input type='text' name='email' id='email' />
-						</FormGroup>
-						<FormGroup className='form-group'>
-							<Label htmlFor='password'>Password</Label>
-							<Input type='password' name='password' id='password' />
-						</FormGroup>
-						<Button type='submit'>Register</Button>
-					</Form>
-				</Formik>
-			</FormWrapper>
+			<FormContainer>
+				<FormWrapper>
+					<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+						<Form className='form-inner'>
+							<h2>Register</h2>
+							<FormGroup className='form-group'>
+								<Label htmlFor='email'>Email</Label>
+								<Input type='text' name='email' id='email' />
+							</FormGroup>
+							<FormGroup className='form-group'>
+								<Label htmlFor='password'>Password</Label>
+								<Input type='password' name='password' id='password' />
+							</FormGroup>
+							<Button type='submit'>Register</Button>
+						</Form>
+					</Formik>
+				</FormWrapper>
+			</FormContainer>
 		</PageContainer>
 	);
 }

@@ -10,7 +10,7 @@ import {
 	SideBarMenu,
 } from "../../styles/SidebarsStyles";
 
-const Sidebar = ({ isOpen, toggle }) => {
+const Sidebar = ({ isOpen, toggle, loggedIn }) => {
 	return (
 		<SidebarContainer isOpen={isOpen} onClick={toggle}>
 			<Icon onClick={toggle}>
@@ -23,7 +23,14 @@ const Sidebar = ({ isOpen, toggle }) => {
 					<SidebarLink to='resources'>Resources</SidebarLink>
 				</SideBarMenu>
 				<SideBtnWrap>
-					<SidebarRoute to='/signin'>Sign In</SidebarRoute>
+					{!loggedIn ? (
+						<>
+							<SidebarRoute to='/login'>Login</SidebarRoute>
+							<SidebarRoute to='/register'>Register</SidebarRoute>
+						</>
+					) : (
+						<SidebarRoute to='/account'>RAFA HERE</SidebarRoute>
+					)}
 				</SideBtnWrap>
 			</SidebarWrapper>
 		</SidebarContainer>

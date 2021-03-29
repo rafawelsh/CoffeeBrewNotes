@@ -11,17 +11,18 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Sidebar from "./components/NavBar/Sidebar";
 
 function App() {
-	// const loggedIn = localStorage.getItem("token");
+	const loggedIn = localStorage.getItem("token");
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => {
 		setIsOpen(!isOpen);
+		// console.log(isOpen);
 	};
 	return (
 		<Router>
 			<div>
 				<GlobalStyle />
-				<Sidebar isOpen={isOpen} toggle={toggle} />
-				<NavBar toggle={toggle} />
+				<Sidebar isOpen={isOpen} toggle={toggle} loggedIn={loggedIn} />
+				<NavBar toggle={toggle} loggedIn={loggedIn} />
 			</div>
 
 			<Switch>

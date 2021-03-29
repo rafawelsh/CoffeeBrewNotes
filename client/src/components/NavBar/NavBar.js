@@ -19,10 +19,10 @@ const NavBar = ({ toggle, loggedIn }) => {
 				<Bars onClick={toggle} />
 
 				<NavMenu>
-					<NavLink exact to='/new-recipe' activeStyle>
+					<NavLink exact to='/new-recipe'>
 						New Recipe
 					</NavLink>
-					<NavLink exact to='/grid' activeStyle>
+					<NavLink exact to='/grid'>
 						Grid
 					</NavLink>
 					<NavLink to='/resources'>Resources</NavLink>
@@ -30,7 +30,7 @@ const NavBar = ({ toggle, loggedIn }) => {
 				{!loggedIn ? (
 					<>
 						<NavBtn>
-							<NavBtnLink to='/login'>Sign In</NavBtnLink>
+							<NavBtnLink to='/login'>Login</NavBtnLink>
 						</NavBtn>
 						<NavBtn>
 							<NavBtnLink to='/register'>Register</NavBtnLink>
@@ -38,7 +38,7 @@ const NavBar = ({ toggle, loggedIn }) => {
 					</>
 				) : (
 					<NavBtn>
-						<NavBtnLink to='/register'>RAFA HERE</NavBtnLink>
+						<NavBtnLink to='/account'>RAFA HERE</NavBtnLink>
 					</NavBtn>
 				)}
 			</Nav>

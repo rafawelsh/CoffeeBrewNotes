@@ -3,8 +3,8 @@ import axios from "axios";
 import { Formik, Form } from "formik";
 import { PageContainer } from "../styles/PageStyles";
 import {
+	FormContainer,
 	FormWrapper,
-	FormGroup,
 	Input,
 	Label,
 	Button,
@@ -35,18 +35,20 @@ function LoginForm() {
 
 	return (
 		<PageContainer>
-			<FormWrapper>
-				<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
-					<Form className='form-inner'>
-						<h1>Login</h1>
-						<Label htmlFor='email'>Email</Label>
-						<Input type='email' name='email' id='email' />
-						<Label htmlFor='password'>Password</Label>
-						<Input type='password' name='password' id='password' />
-						<Button type='submit'>Login</Button>
-					</Form>
-				</Formik>
-			</FormWrapper>
+			<FormContainer>
+				<FormWrapper>
+					<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+						<Form className='form-inner'>
+							<h1>Login</h1>
+							<Label htmlFor='email'>Email</Label>
+							<Input type='email' name='email' id='email' />
+							<Label htmlFor='password'>Password</Label>
+							<Input type='password' name='password' id='password' />
+							<Button type='submit'>Login</Button>
+						</Form>
+					</Formik>
+				</FormWrapper>
+			</FormContainer>
 		</PageContainer>
 	);
 }

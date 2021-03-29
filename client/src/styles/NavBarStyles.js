@@ -5,10 +5,10 @@ import { device, colors } from "./MediaQueries";
 
 export const Nav = styled.nav`
 	background: ${colors.backgroundLight};
-	height: 89px;
+	height: 10vh;
 	display: flex;
 	justify-content: space-between;
-	padding: 0.5rem calc((100vw - 1000px) / 2);
+	padding: 0rem calc((100vw - 1000px) / 2);
 	z-index: 10;
 `;
 
