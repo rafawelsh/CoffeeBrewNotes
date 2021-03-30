@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "./MediaQueries";
 
 export const PageContainer = styled.main`
-	background: red;
+	background: ${colors.backgroundLight};
 	margin: 0 auto;
 	color: ${colors.highlight};
 	background: ${colors.textLight};

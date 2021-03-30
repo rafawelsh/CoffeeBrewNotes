@@ -49,13 +49,13 @@ function RecipeForm() {
 					<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
 						{({ values }) => (
 							<Form className='form'>
-								<Label htmlFor='coffeeName'>Origin/Name </Label>
+								<Label htmlFor='coffeeName'>Origin/Name</Label>
 								<Input
 									id='coffeeName'
 									name='coffeeName'
 									placeholder='Origin or Name'
 								/>
-								<Label htmlFor='roaster'>Roaster </Label>
+								<Label htmlFor='roaster'>Roaster</Label>
 								<Input id='roaster' name='roaster' placeholder='Roaster' />
 								<Label htmlFor='coffeeVariety'>Variety </Label>
 								<Input
@@ -63,11 +63,11 @@ function RecipeForm() {
 									name='coffeeVariety'
 									placeholder='Variety'
 								/>
-								<Label htmlFor='process'>Process </Label>
+								<Label htmlFor='process'>Process</Label>
 								<Input
+									as='select'
 									id='process'
 									name='process'
-									as='select'
 									placeholder='Process'
 								>
 									<option value='natural'>Natural</option>
@@ -75,7 +75,7 @@ function RecipeForm() {
 									<option value='honey'>Honey</option>
 									<option value='anaerobic'>Anaerobic</option>
 								</Input>
-								<Label htmlFor='brewMethod'>Brew Method </Label>
+								<Label htmlFor='brewMethod'>Brew Method</Label>
 								<Input
 									id='brewMethod'
 									name='brewMethod'

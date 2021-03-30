@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { colors } from "./MediaQueries";
-import FilteredPropsInputField from "../components/FIlteredPropsInputField";
+import FilteredPropsInputField from "../components/FilteredPropsInputField";
 
 export const SharedFormContainer = css`
 	margin: 0 auto;
@@ -55,6 +55,10 @@ export const SharedFormStyles = css`
 
 export const Label = styled.label`
 	color: ${colors.textColor};
+	font-size: 1.5rem;
+`;
+export const Select = styled.select`
+	${SharedFormStyles}
 	font-size: 1.5rem;
 `;
 

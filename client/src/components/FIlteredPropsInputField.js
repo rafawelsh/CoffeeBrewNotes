@@ -1,7 +1,7 @@
 import React from "react";
 import { Field } from "formik";
 
-function FilteredPropsInputField({ className, valid, error, ...props }) {
+function FilteredPropsInputField({ className, as, valid, error, ...props }) {
 	return <Field className={className} {...props} />;
 }
 

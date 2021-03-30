@@ -2,18 +2,20 @@ import React from "react";
 import { PageContainer, PageWrapper } from "../styles/PageStyles";
 import {
 	Hero,
+	GridIcon,
+	CardIcon,
 	InfoSection,
 	HeroContent,
-	HeroImage,
 	InfoSectionSteps,
 } from "../styles/HomeStyles";
+import HeroImage from "../images/heroImageMobile.png";
 
 export default function Home() {
 	return (
 		<PageContainer>
 			<PageWrapper>
 				<Hero>
-					{/* <HeroImage /> */}
+					<img height='500px' width='400px' src={HeroImage} alt='hero iamge' />
 					<HeroContent>
 						<h1>Have Your Best Recipes At Hand</h1>
 						<p>
@@ -26,16 +28,16 @@ export default function Home() {
 				<InfoSection>
 					<h2>How Do I Use This App?</h2>
 					<InfoSectionSteps>
+						<GridIcon />
 						<h3>
 							<span>1.</span>Add the recipe to your account
 						</h3>
-						{/* img */}
 					</InfoSectionSteps>
 					<InfoSectionSteps>
+						<CardIcon />
 						<h3>
 							<span>2.</span>Retrive the recipe whenever you want
 						</h3>
-						{/* img */}
 					</InfoSectionSteps>
 					<p>
 						This gives you access to your favorite cups of coffee regardless of

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar/NavBar";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
@@ -17,6 +18,7 @@ function App() {
 		setIsOpen(!isOpen);
 		// console.log(isOpen);
 	};
+
 	return (
 		<Router>
 			<div>
