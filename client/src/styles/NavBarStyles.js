@@ -5,7 +5,7 @@ import { device, colors } from "./MediaQueries";
 
 export const Nav = styled.nav`
 	background: ${colors.backgroundLight};
-	height: 10vh;
+	min-height: 10vh;
 	display: flex;
 	justify-content: space-between;
 	padding: 0rem calc((100vw - 1000px) / 2);

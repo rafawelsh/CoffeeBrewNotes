@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar/NavBar";
@@ -7,25 +8,21 @@ import RegisterForm from "./components/RegisterForm";
 import CoffeeForm from "./components/CoffeeForm/CoffeeForm";
 import RecipesGrid from "./components/RecipeView/RecipesGrid";
 import RecipeGridCard from "./components/RecipeView/RecipeGridCard";
-import GlobalStyle from "./styles/GlobalStyles";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Sidebar from "./components/NavBar/Sidebar";
+import GlobalStyle from "./styles/GlobalStyles";
 
 function App() {
 	const loggedIn = localStorage.getItem("token");
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => {
 		setIsOpen(!isOpen);
-		// console.log(isOpen);
 	};
 
 	return (
 		<Router>
-			<div>
-				<GlobalStyle />
-				<Sidebar isOpen={isOpen} toggle={toggle} loggedIn={loggedIn} />
-				<NavBar toggle={toggle} loggedIn={loggedIn} />
-			</div>
+			<GlobalStyle />
+			<Sidebar isOpen={isOpen} toggle={toggle} loggedIn={loggedIn} />
+			<NavBar toggle={toggle} loggedIn={loggedIn} />
 
 			<Switch>
 				<Route exact path='/' component={Home} />
@@ -38,6 +35,7 @@ function App() {
 					component={(props) => <RecipeGridCard {...props} />}
 				/>
 			</Switch>
+			<Footer />
 		</Router>
 	);
 }

@@ -6,8 +6,8 @@ export const PageContainer = styled.main`
 	margin: 0 auto;
 	color: ${colors.highlight};
 	background: ${colors.textLight};
-	max-height: 100%;
-	height: 90vh;
+	/* max-height: 100%; */
+	min-height: 90vh;
 	width: 100%;
 	max-width: 1200px;
 `;

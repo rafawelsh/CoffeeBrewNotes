@@ -2,27 +2,26 @@ import React from "react";
 import { PageContainer, PageWrapper } from "../styles/PageStyles";
 import {
 	Hero,
+	NavBtnLink,
 	GridIcon,
 	CardIcon,
 	InfoSection,
 	HeroContent,
 	InfoSectionSteps,
 } from "../styles/HomeStyles";
-import HeroImage from "../images/heroImageMobile.png";
 
 export default function Home() {
 	return (
 		<PageContainer>
 			<PageWrapper>
 				<Hero>
-					<img height='500px' width='400px' src={HeroImage} alt='hero iamge' />
 					<HeroContent>
 						<h1>Have Your Best Recipes At Hand</h1>
 						<p>
 							CoffeeLog is a digital notetaking tool for the home barista. Never
 							lose a great recipe again.
 						</p>
-						<button>Sign Up</button>
+						<NavBtnLink to='/register'>Sign Up</NavBtnLink>
 					</HeroContent>
 				</Hero>
 				<InfoSection>
@@ -37,6 +36,12 @@ export default function Home() {
 						<CardIcon />
 						<h3>
 							<span>2.</span>Retrive the recipe whenever you want
+						</h3>
+					</InfoSectionSteps>
+					<InfoSectionSteps>
+						<CardIcon />
+						<h3>
+							<span>3.</span>Hone your palette and become a better barista!
 						</h3>
 					</InfoSectionSteps>
 					<p>

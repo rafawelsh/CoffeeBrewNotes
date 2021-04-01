@@ -1,40 +1,64 @@
 import styled, { css } from "styled-components";
 import { colors } from "./MediaQueries";
 import { BsFillGrid3X3GapFill, BsCardText } from "react-icons/bs";
+import HeroImage from "../images/heroImageMobile2.png";
+import { Link } from "react-router-dom";
 
 export const Hero = styled.div`
+	background-image: url(${HeroImage});
 	background-size: cover;
 	width: 100%;
-	height: 90vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-end;
+	min-height: 90vh;
+	position: relative;
 `;
 
 export const HeroContent = styled.div`
+	height: fit-content;
+	padding: 0.5rem;
+	position: absolute;
+	bottom: 3rem;
+	right: 0.5rem;
+	left: 0.5rem;
 	width: 90%;
-	height: 200px;
-	padding: 1rem;
-	/* margin-bottom: 100px; */
+	margin: 0 auto;
 	color: ${colors.textHeader};
 	background: ${colors.backgroundLight};
+
+	h1 {
+		margin: 0.5rem 0rem;
+	}
+`;
+
+export const NavBtnLink = styled(Link)`
+	border-radius: 4px;
+	background: #256ce1;
+	padding: 10px 22px;
+	color: #fff;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	text-decoration: none;
+
+	&:hover {
+		transition: all 0.2s ease-in-out;
+		background: #fff;
+		color: #010606;
+	}
 `;
 
 export const InfoSection = styled.div`
 	background: ${colors.backgroundLight};
 	width: 100%;
-	height: 90vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	min-height: 90vh;
+	text-align: center;
+	margin: 0 auto;
 `;
 
 export const InfoSectionSteps = styled.section`
 	width: 90%;
 	min-height: 175px;
-	margin: 2rem 0rem;
+	margin: 2.5rem auto;
 	background: ${colors.divBackground};
 	border-radius: 0.75rem;
 	display: flex;
@@ -43,7 +67,7 @@ export const InfoSectionSteps = styled.section`
 	align-items: center;
 
 	h3 {
-		width: 90%;
+		padding: 0.25rem 0.5rem;
 	}
 `;
 
