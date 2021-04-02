@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { StyledGrid, StyledItem, NavLink } from "../../styles/RecipeGridStyles";
-import { PageContainer, PageWrapper } from "../../styles/PageStyles";
+import { PageContainer } from "../../styles/PageStyles";
 import CoffeeIcon from "../../images/coffee.png";
 
 function RecipesGrid() {
@@ -28,7 +28,7 @@ function RecipesGrid() {
 
 	const formattedDate = (mongoDate) => {
 		const date = new Date(mongoDate);
-		let month = date.getMonth();
+		let month = date.getMonth() + 1;
 		let day = date.getDay();
 		return (
 			<>
@@ -39,6 +39,10 @@ function RecipesGrid() {
 		);
 	};
 
+	const formattedRatio = (water, coffee) => {
+		let coffeeRatio = (water / coffee).toFixed(2);
+		return <p>Ratio: {coffeeRatio} : 1</p>;
+	};
 	return (
 		<PageContainer>
 			<h1>List of recipes</h1>
@@ -46,13 +50,12 @@ function RecipesGrid() {
 				{recipeEntries.map((recipe) => (
 					<StyledItem key={recipe._id}>
 						<NavLink to={`grid/${recipe._id}`}>
-							{/* <img src={CoffeeIcon} alt='icon' /> */}
+							<img src={CoffeeIcon} alt='icon' />
 							<div>
-								<p className='method'>Method: {recipe.brewMethod}</p>
 								<p className='roaster'>Roaster: {recipe.roaster}</p>
-							</div>
-							<div>
-								<p className='origin'>Origin: {recipe.coffeeOrigin}</p>
+								<p className='coffeename'>Name: {recipe.coffeeName}</p>
+
+								{formattedRatio(recipe.waterAmount, recipe.coffeeAmount)}
 								{formattedDate(recipe.created)}
 							</div>
 						</NavLink>

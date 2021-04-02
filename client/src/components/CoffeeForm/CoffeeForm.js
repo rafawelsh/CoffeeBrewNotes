@@ -7,6 +7,7 @@ import {
 	FormWrapper,
 	Input,
 	Label,
+	Steps,
 	Button,
 	AddStepButton,
 } from "../../styles/FormStyles";
@@ -113,29 +114,30 @@ function RecipeForm() {
 														className='row'
 														key={index}
 														style={{
-															display: "flex",
-															width: "fit-content",
-															margin: "0 auto",
+															margin: "1rem auto",
 														}}
 													>
 														<div className='col'>
 															<Label htmlFor={`steps.${index}`}>
 																Step {index + 1}
 															</Label>
-															<Input
-																name={`steps.${index}`}
-																placeholder='Add a step'
-																type='text'
-															/>
-														</div>
-														<div className='col'>
-															<Button
-																type='Button'
-																className='secondary'
-																onClick={() => remove(index)}
-															>
-																X
-															</Button>
+															<Steps>
+																<Input
+																	name={`steps.${index}`}
+																	placeholder='Add a step'
+																	type='text'
+																	style={{
+																		margin: "0 auto",
+																	}}
+																/>
+																<Button
+																	type='Button'
+																	className='secondary'
+																	onClick={() => remove(index)}
+																>
+																	X
+																</Button>
+															</Steps>
 														</div>
 													</div>
 												))}

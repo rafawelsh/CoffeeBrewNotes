@@ -5,7 +5,7 @@ import FilteredPropsInputField from "../components/FilteredPropsInputField";
 export const SharedFormContainer = css`
 	margin: 0 auto;
 	background: ${colors.backgroundLight};
-	height: 90vh;
+	min-height: 90vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -19,7 +19,6 @@ export const FormContainer = styled.div`
 
 export const RecipeFormContainer = styled.div`
 	${SharedFormContainer};
-	height: 1200px;
 `;
 
 export const FormWrapper = styled.div`
@@ -55,7 +54,7 @@ export const SharedFormStyles = css`
 
 export const Label = styled.label`
 	color: ${colors.textColor};
-	font-size: 1.5rem;
+	font-size: 1rem;
 `;
 export const Select = styled.select`
 	${SharedFormStyles}
@@ -67,11 +66,15 @@ export const Input = styled(FilteredPropsInputField)`
 	width: 100%;
 `;
 
+export const StepsDiv = styled.div``;
+export const Steps = styled.div`
+	display: flex;
+	align-items: center;
+`;
 export const Button = styled.button`
 	background: ${colors.highlight};
-	margin-top: 1rem;
-	font-size: 1.25rem;
-	padding: 1rem 2rem;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
@@ -82,6 +85,6 @@ export const Button = styled.button`
 `;
 
 export const AddStepButton = styled(Button)`
-	font-size: 1.25rem;
 	padding: 0.5rem;
+	margin: 1rem 0 1.25rem 0;
 `;

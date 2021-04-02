@@ -14,17 +14,17 @@ export const StyledItem = styled.li`
 	border-radius: 10px;
 	flex: 1 1 200px;
 	margin: 1rem;
-	display: grid;
 
 	img {
-		height: 10%;
-		width: auto;
+		height: 20%;
+		width: 15%;
+		padding: 1rem;
 	}
 `;
 
 export const NavLink = styled(Link)`
 	text-decoration: none;
-
+	display: flex;
 	&:focus,
 	&:hover,
 	&:visited,
