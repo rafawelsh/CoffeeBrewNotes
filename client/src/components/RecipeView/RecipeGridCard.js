@@ -1,28 +1,7 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
-const StyledGridCard = styled.div`
-	/* width: 300px; */
-	display: grid;
-	/* grid-template-areas:
-		"a b"
-		"c d";
-
-	.method {
-		grid-area: "a";
-	}
-	.roaster {
-		grid-area: "b";
-	}
-	.origin {
-		grid-area: "c";
-	}
-	.variety {
-		grid-area: "d";
-	} */
-`;
+import { StyledGridCard } from "../../styles/RecipeGridCardStyles";
 
 function RecipeGridCard(props) {
 	const [recipe, setRecipe] = useState([]);
@@ -48,7 +27,18 @@ function RecipeGridCard(props) {
 			});
 	};
 
-	const { brewMethod, roaster, coffeeOrigin, coffeeVariety, created } = recipe;
+	const {
+		brewMethod,
+		coffeeName,
+		roaster,
+		coffeeVariety,
+		process,
+		waterAmount,
+		coffeeAmount,
+		steps,
+		tastingNotes,
+		created,
+	} = recipe;
 
 	const [month, day] = new Date(created).toLocaleDateString("en-US").split("/");
 
@@ -56,7 +46,7 @@ function RecipeGridCard(props) {
 		<StyledGridCard>
 			<p className='method'>Method: {brewMethod}</p>
 			<p className='roaster'>Roaster: {roaster}</p>
-			<p className='origin'>Origin: {coffeeOrigin}</p>
+			<p className='origin'>Origin: {coffeeName}</p>
 			<p className='variety'>Variety: {coffeeVariety}</p>
 			<p className='variety'>
 				Date: {month}/{day}

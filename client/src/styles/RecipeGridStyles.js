@@ -13,12 +13,15 @@ export const StyledItem = styled.li`
 	background-color: ${colors.divBackground};
 	border-radius: 10px;
 	flex: 1 1 200px;
+
 	margin: 1rem;
 
 	img {
 		height: 20%;
 		width: 15%;
 		padding: 1rem;
+		padding-right: 1.5rem;
+		align-self: center;
 	}
 `;
 
