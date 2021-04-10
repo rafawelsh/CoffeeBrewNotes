@@ -12,4 +12,14 @@ export const PageContainer = styled.main`
 	max-width: 1200px;
 `;
 
-export const PageWrapper = styled.div``;
+export const PageWrapper = styled.div`
+	margin: 0 auto;
+	min-height: 90vh;
+	height: 100%;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 1rem;
+`;

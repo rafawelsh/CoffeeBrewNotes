@@ -1,21 +1,26 @@
 import styled, { css } from "styled-components";
 import { colors } from "./MediaQueries";
 import { BsFillGrid3X3GapFill, BsCardText } from "react-icons/bs";
-import HeroImage from "../images/heroImageMobile2.png";
+import HeroImg from "../images/heroImageMobile2.png";
 import { Link } from "react-router-dom";
 
 export const Hero = styled.div`
-	background-image: url(${HeroImage});
-	background-size: cover;
+	/* background-size: cover; */
 	width: 100%;
 	min-height: 90vh;
-	position: relative;
+	/* position: relative; */
+`;
+
+export const HeroImage = styled.img`
+	background-image: url(${HeroImg});
+	background-size: cover;
+	height: calc(100vh - 400px);
+	width: 100%;
 `;
 
 export const HeroContent = styled.div`
 	height: fit-content;
 	padding: 0.5rem;
-	position: absolute;
 	bottom: 3rem;
 	right: 0.5rem;
 	left: 0.5rem;

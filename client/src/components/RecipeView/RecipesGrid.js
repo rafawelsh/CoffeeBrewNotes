@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import FormattedDateView from "./FormattedDateView";
+import FormattedRatioView from "./FormattedRatioView";
 import { StyledGrid, StyledItem, NavLink } from "../../styles/RecipeGridStyles";
 import { PageContainer } from "../../styles/PageStyles";
 import CoffeeIcon from "../../images/coffee.png";
@@ -26,23 +28,6 @@ function RecipesGrid() {
 			});
 	};
 
-	const formattedDate = (mongoDate) => {
-		const date = new Date(mongoDate);
-		let month = date.getMonth() + 1;
-		let day = date.getDay();
-		return (
-			<>
-				<p className='date'>
-					Date: {month}/{day}
-				</p>
-			</>
-		);
-	};
-
-	const formattedRatio = (water, coffee) => {
-		let coffeeRatio = (water / coffee).toFixed(2);
-		return <p>Ratio: {coffeeRatio} : 1</p>;
-	};
 	return (
 		<PageContainer>
 			<h1>List of recipes</h1>
@@ -54,9 +39,11 @@ function RecipesGrid() {
 							<div>
 								<p className='roaster'>Roaster: {recipe.roaster}</p>
 								<p className='coffeename'>Name: {recipe.coffeeName}</p>
-
-								{formattedRatio(recipe.waterAmount, recipe.coffeeAmount)}
-								{formattedDate(recipe.created)}
+								<FormattedRatioView
+									water={recipe.waterAmount}
+									coffee={recipe.coffeeAmount}
+								/>
+								<formattedDate created={recipe.created} />
 							</div>
 						</NavLink>
 					</StyledItem>

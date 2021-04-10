@@ -18,9 +18,9 @@ const Sidebar = ({ isOpen, toggle, loggedIn }) => {
 			</Icon>
 			<SidebarWrapper>
 				<SideBarMenu>
-					<SidebarLink to='new-recipe'>New Recipe</SidebarLink>
-					<SidebarLink to='grid'>Grid</SidebarLink>
-					<SidebarLink to='resources'>Resources</SidebarLink>
+					<SidebarLink to='/new-recipe'>New Recipe</SidebarLink>
+					<SidebarLink to='/grid'>Grid</SidebarLink>
+					<SidebarLink to='/resources'>Resources</SidebarLink>
 				</SideBarMenu>
 				<SideBtnWrap>
 					{!loggedIn ? (
