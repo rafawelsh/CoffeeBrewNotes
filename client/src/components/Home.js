@@ -1,5 +1,5 @@
 import React from "react";
-import { PageContainer, PageWrapper } from "../styles/PageStyles";
+import { PageContainer } from "../styles/PageStyles";
 import {
 	Hero,
 	HeroImage,
@@ -18,7 +18,7 @@ export default function Home() {
 				<HeroImage />
 				<HeroContent>
 					<h1>Have Your Best Recipes At Hand</h1>
-					<p>
+					<p style={{ marginBottom: "2rem" }}>
 						CoffeeLog is a digital notetaking tool for the home barista. Never
 						lose a great recipe again.
 					</p>

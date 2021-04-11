@@ -1,7 +1,7 @@
 import { NavLink as Link } from "react-router-dom";
-import { FaBars, FaPlus } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import styled from "styled-components";
-import { device, colors } from "./MediaQueries";
+import { colors } from "./MediaQueries";
 
 export const Nav = styled.nav`
 	background: ${colors.backgroundLight};

@@ -19,6 +19,7 @@ function RecipeForm() {
 		roaster: "",
 		coffeeVariety: "",
 		process: "",
+		grindSize: "",
 		waterAmount: "",
 		coffeeAmount: "",
 		steps: [""],
@@ -92,6 +93,12 @@ function RecipeForm() {
 									<option value='Siphon'>Siphon</option>
 									<option value='Other'>Other</option>
 								</Input>
+								<Label htmlFor='grindSize'>Grind Size</Label>
+								<Input
+									id='grindSize'
+									name='grindSize'
+									placeholder='Grind Setting'
+								/>
 								<Label htmlFor='waterAmount'>Amount of Water (g)</Label>
 								<Input
 									id='waterAmount'

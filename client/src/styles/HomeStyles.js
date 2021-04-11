@@ -1,29 +1,24 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { colors } from "./MediaQueries";
 import { BsFillGrid3X3GapFill, BsCardText } from "react-icons/bs";
 import HeroImg from "../images/heroImageMobile2.png";
 import { Link } from "react-router-dom";
 
 export const Hero = styled.div`
-	/* background-size: cover; */
 	width: 100%;
 	min-height: 90vh;
-	/* position: relative; */
 `;
 
 export const HeroImage = styled.img`
 	background-image: url(${HeroImg});
 	background-size: cover;
-	height: calc(100vh - 400px);
+	height: calc(100vh - 350px);
 	width: 100%;
 `;
 
 export const HeroContent = styled.div`
 	height: fit-content;
 	padding: 0.5rem;
-	bottom: 3rem;
-	right: 0.5rem;
-	left: 0.5rem;
 	width: 90%;
 	margin: 0 auto;
 	color: ${colors.textHeader};
@@ -35,9 +30,9 @@ export const HeroContent = styled.div`
 `;
 
 export const NavBtnLink = styled(Link)`
-	border-radius: 4px;
-	background: #256ce1;
-	padding: 10px 22px;
+	border-radius: 0.25rem;
+	background: ${colors.highlight};
+	padding: 0.75rem 2rem;
 	color: #fff;
 	border: none;
 	outline: none;

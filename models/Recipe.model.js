@@ -24,11 +24,16 @@ const RecipeSchema = new Schema({
 	process: {
 		type: String,
 	},
+	grindSize: {
+		type: String,
+	},
 	waterAmount: {
 		type: String,
+		required: true,
 	},
 	coffeeAmount: {
 		type: String,
+		required: true,
 	},
 	steps: {
 		type: Array,

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { colors } from "./MediaQueries";
-import FilteredPropsInputField from "../components/FilteredPropsInputField";
+import FilteredPropsInputField from "../components/CoffeeForm/FilteredPropsInputField";
 
 export const SharedFormContainer = css`
 	margin: 0 auto;

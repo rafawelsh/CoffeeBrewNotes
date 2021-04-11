@@ -43,7 +43,7 @@ function RecipesGrid() {
 									water={recipe.waterAmount}
 									coffee={recipe.coffeeAmount}
 								/>
-								<formattedDate created={recipe.created} />
+								<FormattedDateView created={recipe.created} />
 							</div>
 						</NavLink>
 					</StyledItem>
