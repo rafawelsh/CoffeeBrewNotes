@@ -1,12 +1,17 @@
 import styled from "styled-components";
-import { colors } from "./MediaQueries";
+import { colors, device } from "./MediaQueries";
 import { BsFillGrid3X3GapFill, BsCardText } from "react-icons/bs";
 import HeroImg from "../images/heroImageMobile2.png";
 import { Link } from "react-router-dom";
 
 export const Hero = styled.div`
-	width: 100%;
 	min-height: 90vh;
+
+	@media ${device.mobileL} {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+	}
 `;
 
 export const HeroImage = styled.img`
@@ -14,6 +19,10 @@ export const HeroImage = styled.img`
 	background-size: cover;
 	height: calc(100vh - 350px);
 	width: 100%;
+
+	@media ${device.mobileL} {
+		height: 85vh;
+	}
 `;
 
 export const HeroContent = styled.div`

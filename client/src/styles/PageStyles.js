@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { colors } from "./MediaQueries";
+import { colors, device } from "./MediaQueries";
 
 export const PageContainer = styled.main`
 	background: ${colors.backgroundLight};
-	margin: 0 auto;
 	color: ${colors.highlight};
-	background: ${colors.textLight};
-	/* max-height: 100%; */
 	min-height: 90vh;
-	width: 100%;
-	max-width: 1200px;
+
+	@media ${device.mobileL} {
+		width: 95vw;
+		margin: 0 auto;
+	}
 `;
 
 export const PageWrapper = styled.div`

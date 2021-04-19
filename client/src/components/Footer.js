@@ -1,7 +1,10 @@
 import React from "react";
+import { FooterSection } from "../styles/FooterStyles";
 
-function Footer() {
-	return <footer>Made By Rafael</footer>;
+export default function Footer() {
+	return (
+		<FooterSection>
+			<p>Designed and Developed by Rafael Castellanos-Welsh</p>
+		</FooterSection>
+	);
 }
-
-export default Footer;

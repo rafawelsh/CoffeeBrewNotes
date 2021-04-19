@@ -1,5 +1,5 @@
 import React from "react";
-import { PageContainer } from "../styles/PageStyles";
+import { PageContainer, PageWrapper } from "../styles/PageStyles";
 import {
 	Hero,
 	HeroImage,
