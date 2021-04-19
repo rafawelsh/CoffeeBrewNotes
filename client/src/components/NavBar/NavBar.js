@@ -10,39 +10,37 @@ import {
 
 const NavBar = ({ toggle, loggedIn }) => {
 	return (
-		<>
-			<Nav>
-				<NavLink exact to='/' className='logo'>
-					CoffeeBrewNotes
+		<Nav>
+			<NavLink exact to='/' className='logo'>
+				CoffeeBrewNotes
+			</NavLink>
+
+			<Bars onClick={toggle} />
+
+			<NavMenu>
+				<NavLink exact to='/new-recipe'>
+					New Recipe
 				</NavLink>
-
-				<Bars onClick={toggle} />
-
-				<NavMenu>
-					<NavLink exact to='/new-recipe'>
-						New Recipe
-					</NavLink>
-					<NavLink exact to='/grid'>
-						Grid
-					</NavLink>
-					<NavLink to='/resources'>Resources</NavLink>
-				</NavMenu>
-				{!loggedIn ? (
-					<>
-						<NavBtn>
-							<NavBtnLink to='/login'>Login</NavBtnLink>
-						</NavBtn>
-						<NavBtn>
-							<NavBtnLink to='/register'>Register</NavBtnLink>
-						</NavBtn>
-					</>
-				) : (
+				<NavLink exact to='/grid'>
+					Grid
+				</NavLink>
+				<NavLink to='/resources'>Resources</NavLink>
+			</NavMenu>
+			{!loggedIn ? (
+				<>
 					<NavBtn>
-						<NavBtnLink to='/account'>RAFA HERE</NavBtnLink>
+						<NavBtnLink to='/login'>Login</NavBtnLink>
 					</NavBtn>
-				)}
-			</Nav>
-		</>
+					<NavBtn>
+						<NavBtnLink to='/register'>Register</NavBtnLink>
+					</NavBtn>
+				</>
+			) : (
+				<NavBtn>
+					<NavBtnLink to='/account'>RAFA HERE</NavBtnLink>
+				</NavBtn>
+			)}
+		</Nav>
 	);
 };
 

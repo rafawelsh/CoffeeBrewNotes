@@ -1,5 +1,5 @@
 import React from "react";
-import { PageContainer, PageWrapper } from "../styles/PageStyles";
+import { PageContainer } from "../styles/PageStyles";
 import {
 	Hero,
 	HeroImage,
@@ -7,6 +7,7 @@ import {
 	GridIcon,
 	CardIcon,
 	InfoSection,
+	InfoSectionFlex,
 	HeroContent,
 	InfoSectionSteps,
 } from "../styles/HomeStyles";
@@ -27,24 +28,26 @@ export default function Home() {
 			</Hero>
 			<InfoSection>
 				<h2>How Do I Use This App?</h2>
-				<InfoSectionSteps>
-					<GridIcon />
-					<h3>
-						<span>1.</span>Add the recipe to your account
-					</h3>
-				</InfoSectionSteps>
-				<InfoSectionSteps>
-					<CardIcon />
-					<h3>
-						<span>2.</span>Retrive the recipe whenever you want
-					</h3>
-				</InfoSectionSteps>
-				<InfoSectionSteps>
-					<CardIcon />
-					<h3>
-						<span>3.</span>Hone your palette and become a better barista!
-					</h3>
-				</InfoSectionSteps>
+				<InfoSectionFlex>
+					<InfoSectionSteps>
+						<GridIcon />
+						<h3>
+							<span>1.</span> Add the recipe to your account
+						</h3>
+					</InfoSectionSteps>
+					<InfoSectionSteps>
+						<CardIcon />
+						<h3>
+							<span>2.</span> Retrive the recipe whenever you want
+						</h3>
+					</InfoSectionSteps>
+					<InfoSectionSteps>
+						<CardIcon />
+						<h3>
+							<span>3.</span> Hone your palette and become a better barista!
+						</h3>
+					</InfoSectionSteps>
+				</InfoSectionFlex>
 				<p>
 					This gives you access to your favorite cups of coffee regardless of
 					when you brewed the recipe.

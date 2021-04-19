@@ -54,6 +54,10 @@ export const NavBtnLink = styled(Link)`
 		background: #fff;
 		color: #010606;
 	}
+
+	@media ${device.mobileL} {
+		padding: 0.5rem 1rem;
+	}
 `;
 
 export const InfoSection = styled.div`
@@ -62,12 +66,29 @@ export const InfoSection = styled.div`
 	min-height: 90vh;
 	text-align: center;
 	margin: 0 auto;
+	color: ${colors.textHeader};
+
+	@media ${device.mobileL} {
+		min-height: 70vh;
+		h2 {
+			font-size: 2rem;
+		}
+	}
+`;
+
+export const InfoSectionFlex = styled.div`
+	@media ${device.mobileL} {
+		display: flex;
+		flex: 1 1 300px;
+		flex-direction: row;
+	}
 `;
 
 export const InfoSectionSteps = styled.section`
 	width: 90%;
 	min-height: 175px;
 	margin: 2.5rem auto;
+	margin: 1rem;
 	background: ${colors.divBackground};
 	border-radius: 0.75rem;
 	display: flex;
@@ -76,18 +97,18 @@ export const InfoSectionSteps = styled.section`
 	align-items: center;
 
 	h3 {
-		padding: 0.25rem 0.5rem;
+		padding: 0rem 0.5rem;
 	}
 `;
 
 export const GridIcon = styled(BsFillGrid3X3GapFill)`
 	height: 2.5rem;
 	width: 2.5rem;
-	color: ${colors.highlight};
+	color: ${colors.textHeader};
 `;
 
 export const CardIcon = styled(BsCardText)`
 	height: 2.5rem;
 	width: 2.5rem;
-	color: ${colors.highlight};
+	color: ${colors.textHeader};
 `;
