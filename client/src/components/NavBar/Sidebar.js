@@ -1,39 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-	SidebarContainer,
-	CloseIcon,
+	NavLink,
+	NavMenu,
+	NavBtn,
+	NavBtnLink,
+	Bars,
 	Icon,
-	SidebarWrapper,
-	SidebarRoute,
-	SidebarLink,
-	SideBtnWrap,
-	SideBarMenu,
-} from "../../styles/SidebarsStyles";
+	CloseIcon,
+} from "../../styles/NavBarStyles";
 
-const Sidebar = ({ isOpen, toggle, loggedIn }) => {
+const Sidebar = ({ loggedIn }) => {
+	const [isOpen, setIsOpen] = useState(false);
+	const toggle = () => {
+		setIsOpen(!isOpen);
+		// console.log(isOpen);
+	};
+
 	return (
-		<SidebarContainer isOpen={isOpen} onClick={toggle}>
-			<Icon onClick={toggle}>
-				<CloseIcon />
+		<>
+			<Icon isOpen={isOpen}>
+				{isOpen ? <CloseIcon onClick={toggle} /> : <Bars onClick={toggle} />}
 			</Icon>
-			<SidebarWrapper>
-				<SideBarMenu>
-					<SidebarLink to='/new-recipe'>New Recipe</SidebarLink>
-					<SidebarLink to='/grid'>Grid</SidebarLink>
-					<SidebarLink to='/resources'>Resources</SidebarLink>
-				</SideBarMenu>
-				<SideBtnWrap>
-					{!loggedIn ? (
-						<>
-							<SidebarRoute to='/login'>Login</SidebarRoute>
-							<SidebarRoute to='/register'>Register</SidebarRoute>
-						</>
-					) : (
-						<SidebarRoute to='/account'>RAFA HERE</SidebarRoute>
-					)}
-				</SideBtnWrap>
-			</SidebarWrapper>
-		</SidebarContainer>
+			<NavMenu isOpen={isOpen}>
+				<NavLink exact to='/new-recipe' onClick={toggle}>
+					New Recipe
+				</NavLink>
+				<NavLink exact to='/grid' onClick={toggle}>
+					Grid
+				</NavLink>
+				<NavLink to='/resources' onClick={toggle}>
+					Resources
+				</NavLink>
+				{!loggedIn ? (
+					<>
+						<NavBtn>
+							<NavBtnLink to='/login' onClick={toggle}>
+								Login
+							</NavBtnLink>
+						</NavBtn>
+						<NavBtn>
+							<NavBtnLink to='/register' onClick={toggle}>
+								Register
+							</NavBtnLink>
+						</NavBtn>
+					</>
+				) : (
+					<NavBtn>
+						<NavBtnLink to='/new-recipe' onClick={toggle}>
+							Log Recipe
+						</NavBtnLink>
+					</NavBtn>
+				)}
+			</NavMenu>
+		</>
 	);
 };
 

@@ -13,16 +13,11 @@ import GlobalStyle from "./styles/GlobalStyles";
 
 function App() {
 	const loggedIn = localStorage.getItem("token");
-	const [isOpen, setIsOpen] = useState(false);
-	const toggle = () => {
-		setIsOpen(!isOpen);
-	};
 
 	return (
 		<Router>
 			<GlobalStyle />
-			<Sidebar isOpen={isOpen} toggle={toggle} loggedIn={loggedIn} />
-			<NavBar toggle={toggle} loggedIn={loggedIn} />
+			<NavBar loggedIn={loggedIn} />
 
 			<Switch>
 				<Route exact path='/' component={Home} />
