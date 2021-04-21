@@ -1,15 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { Formik, Form } from "formik";
-import { PageContainer } from "../styles/PageStyles";
+import { Input, Label, Button } from "../../styles/FormStyles";
 import {
 	FormContainer,
+	AccountFormContainer,
 	FormWrapper,
-	FormGroup,
-	Input,
-	Label,
-	Button,
-} from "../styles/FormStyles";
+} from "../../styles/UserForms";
 
 function RegisterForm() {
 	const initialValues = {
@@ -35,26 +32,22 @@ function RegisterForm() {
 	};
 
 	return (
-		<PageContainer>
-			<FormContainer>
+		<FormContainer>
+			<AccountFormContainer>
 				<FormWrapper>
 					<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
 						<Form className='form-inner'>
-							<h2>Register</h2>
-							<FormGroup className='form-group'>
-								<Label htmlFor='email'>Email</Label>
-								<Input type='text' name='email' id='email' />
-							</FormGroup>
-							<FormGroup className='form-group'>
-								<Label htmlFor='password'>Password</Label>
-								<Input type='password' name='password' id='password' />
-							</FormGroup>
+							<h1>Register</h1>
+							<Label htmlFor='email'>Email</Label>
+							<Input type='text' name='email' id='email' />
+							<Label htmlFor='password'>Password</Label>
+							<Input type='password' name='password' id='password' />
 							<Button type='submit'>Register</Button>
 						</Form>
 					</Formik>
 				</FormWrapper>
-			</FormContainer>
-		</PageContainer>
+			</AccountFormContainer>
+		</FormContainer>
 	);
 }
 

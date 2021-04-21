@@ -1,14 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { Formik, Form } from "formik";
-import { PageContainer } from "../styles/PageStyles";
+import { Input, Label, Button } from "../../styles/FormStyles";
 import {
 	FormContainer,
+	AccountFormContainer,
 	FormWrapper,
-	Input,
-	Label,
-	Button,
-} from "../styles/FormStyles";
+} from "../../styles/UserForms";
 
 function LoginForm() {
 	const initialValues = {
@@ -34,8 +32,8 @@ function LoginForm() {
 	};
 
 	return (
-		<PageContainer>
-			<FormContainer>
+		<FormContainer>
+			<AccountFormContainer>
 				<FormWrapper>
 					<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
 						<Form className='form-inner'>
@@ -48,8 +46,8 @@ function LoginForm() {
 						</Form>
 					</Formik>
 				</FormWrapper>
-			</FormContainer>
-		</PageContainer>
+			</AccountFormContainer>
+		</FormContainer>
 	);
 }
 

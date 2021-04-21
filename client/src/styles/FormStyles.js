@@ -11,8 +11,18 @@ export const SharedFormContainer = css`
 	padding: 0 1rem;
 `;
 
-export const FormContainer = styled.div`
+export const AccountFormContainer = styled.div`
 	${SharedFormContainer}
+
+	@media ${device.tablet} {
+		max-width: 800px;
+		padding: 0rem 3rem;
+	}
+`;
+export const FormGroup = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 `;
 
 export const RecipeFormContainer = styled.div`
@@ -104,10 +114,4 @@ export const Button = styled.button`
 export const AddStepButton = styled(Button)`
 	padding: 0.5rem;
 	margin: 1rem 0 1.25rem 0;
-`;
-
-export const FormGroup = styled.div`
-	display: flex;
-	flex-direction: column;
-	padding: 0.25rem 0rem;
 `;
