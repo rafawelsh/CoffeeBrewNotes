@@ -26,6 +26,10 @@ export const NavLink = styled(Link)`
 	&.active {
 		color: ${colors.highlight};
 	}
+
+	@media ${device.tablet} {
+		font-size: 1rem;
+	}
 `;
 
 // styled for Sidebar.js
@@ -39,7 +43,6 @@ export const NavMenu = styled.div`
 	top: 0;
 	right: 0;
 	height: 100vh;
-	max-height: 100%;
 	width: 100vw;
 	/* margin: 2rem 0rem; */
 	transform: ${({ isOpen }) =>
@@ -48,12 +51,13 @@ export const NavMenu = styled.div`
 
 	@media ${device.tablet} {
 		background: none;
+		justify-content: flex-end;
 		position: static;
 		flex-flow: row nowrap;
-		top: 0;
 		height: 10vh;
 		transform: translateY(0);
 		transition: transform 0s;
+		font-size: 1rem;
 	}
 `;
 
@@ -64,8 +68,9 @@ export const NavBtn = styled.div`
 
 export const NavBtnLink = styled(Link)`
 	border-radius: 4px;
-	background: #256ce1;
+	background: ${colors.textHeader};
 	padding: 0.5rem 1rem;
+	margin: 2rem 1rem;
 	color: #fff;
 	border: none;
 	outline: none;
@@ -75,8 +80,8 @@ export const NavBtnLink = styled(Link)`
 
 	&:hover {
 		transition: all 0.2s ease-in-out;
-		background: #fff;
-		color: #010606;
+		background: ${colors.highlight};
+		color: #fff;
 	}
 `;
 

@@ -6,7 +6,7 @@ export const PageContainer = styled.main`
 	color: ${colors.highlight};
 	min-height: 90vh;
 
-	@media ${device.mobileL} {
+	@media ${device.tablet} {
 		width: 95vw;
 		margin: 0 auto;
 	}
