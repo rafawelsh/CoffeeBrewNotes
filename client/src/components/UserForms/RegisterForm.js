@@ -10,6 +10,7 @@ import {
 
 function RegisterForm() {
 	const initialValues = {
+		name: "",
 		email: "",
 		password: "",
 	};
@@ -38,6 +39,8 @@ function RegisterForm() {
 					<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
 						<Form className='form-inner'>
 							<h1>Register</h1>
+							<Label htmlFor='name'>Name</Label>
+							<Input type='text' name='name' id='name' />
 							<Label htmlFor='email'>Email</Label>
 							<Input type='text' name='email' id='email' />
 							<Label htmlFor='password'>Password</Label>
