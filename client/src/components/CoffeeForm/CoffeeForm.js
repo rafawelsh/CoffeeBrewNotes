@@ -78,6 +78,7 @@ function RecipeForm() {
 											name='process'
 											placeholder='Process'
 										>
+											<option defaultvalue>Process</option>
 											<option value='natural'>Natural</option>
 											<option value='Washed'>Washed</option>
 											<option value='honey'>Honey</option>
@@ -92,6 +93,7 @@ function RecipeForm() {
 											as='select'
 											placeholder='Method'
 										>
+											<option defaultValue>Brewing Method</option>
 											<option value='Drip'>Drip</option>
 											<option value='Espresso'>Espresso</option>
 											<option value='Honey'>Pour Over</option>
@@ -99,6 +101,7 @@ function RecipeForm() {
 											<option value='Aeropress'>Aeropress</option>
 											<option value='Chemex'>Chemex</option>
 											<option value='Siphon'>Siphon</option>
+											<option value='Phin'>Phin</option>
 											<option value='Other'>Other</option>
 										</Select>
 										<Label htmlFor='grindSize'>Grind Size</Label>

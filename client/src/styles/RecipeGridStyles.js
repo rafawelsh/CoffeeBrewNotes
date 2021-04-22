@@ -4,22 +4,16 @@ import { colors, device } from "./MediaQueries";
 
 export const StyledGrid = styled.ul`
 	list-style-type: none;
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
 	padding: 0;
-
-	@media ${device.tablet} {
-		justify-content: start;
-		align-items: center;
-	}
+	grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+	grid-auto-rows: 175px;
+	grid-gap: 0.5rem;
 `;
 
 export const StyledItem = styled.li`
 	background-color: ${colors.divBackground};
 	border-radius: 10px;
-	flex: 0 1 300px;
-
-	margin: 1rem;
 
 	img {
 		height: 20%;

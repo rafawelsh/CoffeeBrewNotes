@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { colors, device } from "./MediaQueries";
 
-export const StyledGridCard = styled.main`
+export const StyledGridCard = styled.div`
 	background: ${colors.divBackground};
 	padding: 1rem;
 	margin-bottom: 2rem;
 
 	@media ${device.tablet} {
 		width: 100%;
-		max-width: 1200px;
+		max-width: 1000px;
 		margin: 0;
 	}
 `;

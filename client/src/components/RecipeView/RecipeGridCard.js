@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import CardStepsView from "./CardStepsView";
 import FormattedDateView from "./FormattedDateView";
 import FormattedRatioView from "./FormattedRatioView";
-import { PageWrapper } from "../../styles/PageStyles";
+import { RecipeGridCardWrapper } from "../../styles/PageStyles";
 import {
 	StyledGridCard,
 	RecipeSections,
@@ -49,7 +49,7 @@ function RecipeGridCard(props) {
 	} = recipe;
 
 	return (
-		<PageWrapper>
+		<RecipeGridCardWrapper>
 			<StyledGridCard>
 				<RecipeSections>
 					<RecipeSection>
@@ -75,7 +75,7 @@ function RecipeGridCard(props) {
 				</RecipeSections>
 				<Link to='/grid'>Back To Coffee Grid</Link>
 			</StyledGridCard>
-		</PageWrapper>
+		</RecipeGridCardWrapper>
 	);
 }
 

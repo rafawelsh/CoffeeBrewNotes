@@ -3,7 +3,7 @@ import axios from "axios";
 import FormattedDateView from "./FormattedDateView";
 import FormattedRatioView from "./FormattedRatioView";
 import { StyledGrid, StyledItem, NavLink } from "../../styles/RecipeGridStyles";
-import { PageContainer } from "../../styles/PageStyles";
+import { RecipeGridWrapper } from "../../styles/PageStyles";
 import CoffeeIcon from "../../images/coffee.png";
 
 function RecipesGrid() {
@@ -29,7 +29,7 @@ function RecipesGrid() {
 	};
 
 	return (
-		<PageContainer>
+		<RecipeGridWrapper>
 			<h1>List of recipes</h1>
 			<StyledGrid>
 				{recipeEntries.map((recipe) => (
@@ -49,7 +49,7 @@ function RecipesGrid() {
 					</StyledItem>
 				))}
 			</StyledGrid>
-		</PageContainer>
+		</RecipeGridWrapper>
 	);
 }
 
