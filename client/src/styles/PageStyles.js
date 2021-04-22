@@ -17,9 +17,12 @@ export const PageWrapper = styled.div`
 	min-height: 90vh;
 	height: 100%;
 	width: 90%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	padding: 0 1rem;
+
+	@media ${device.tablet} {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 78vh;
+	}
 `;

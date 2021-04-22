@@ -22,7 +22,7 @@ app.use(express.json());
 
 //Use routes
 app.use("/api/recipes/", recipes);
-app.use("/api/user", authRoute);
+app.use("/api/user/", authRoute);
 
 const port = process.env.PORT || 5000;
 

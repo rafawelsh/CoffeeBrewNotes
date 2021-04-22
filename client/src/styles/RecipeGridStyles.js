@@ -1,18 +1,23 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "./MediaQueries";
+import { colors, device } from "./MediaQueries";
 
 export const StyledGrid = styled.ul`
 	list-style-type: none;
 	display: flex;
 	flex-wrap: wrap;
 	padding: 0;
+
+	@media ${device.tablet} {
+		justify-content: start;
+		align-items: center;
+	}
 `;
 
 export const StyledItem = styled.li`
 	background-color: ${colors.divBackground};
 	border-radius: 10px;
-	flex: 1 1 200px;
+	flex: 0 1 300px;
 
 	margin: 1rem;
 

@@ -17,19 +17,6 @@ router.get("/", verify, (req, res) => {
 		.catch((err) => res.status(204).json({ success: false }));
 });
 
-/* 
-@route GET api/grid/:id
-@desc Get All Recipes from specific user
-@access Private
-*/
-// router.get("/:_id", verify, (req, res) => {
-// 	const { _id } = req.user;
-// 	Recipe.find({ userid: _id })
-// 		.sort({ date: -1 })
-// 		.then((recipes) => res.json(recipes))
-// 		.catch((err) => res.status(204).json({ success: false }));
-// });
-
 /*
 @route POST api/items
 @desc Create new recipe
