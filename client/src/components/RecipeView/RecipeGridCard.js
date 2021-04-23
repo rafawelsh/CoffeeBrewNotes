@@ -11,6 +11,54 @@ import {
 	RecipeSection,
 } from "../../styles/RecipeGridCardStyles";
 
+function processRecipe(recipe) {
+	const section1 = [];
+	const section2 = [];
+	const section3 = [];
+
+	const {
+		brewMethod,
+		coffeeName,
+		roaster,
+		coffeeVariety,
+		process,
+		waterAmount,
+		coffeeAmount,
+		tastingNotes,
+		grind,
+	} = recipe;
+
+	if (coffeeName) {
+		section1.push(`Coffee: ${coffeeName}`);
+	}
+	if (roaster) {
+		section1.push(`Roaster: ${roaster}`);
+	}
+	if (coffeeVariety) {
+		section1.push(`Variety: ${coffeeVariety}`);
+	}
+	if (process) {
+		section1.push(`Process: ${process}`);
+	}
+	if (brewMethod) {
+		section1.push(`Method: ${brewMethod}`);
+	}
+	if (grind) {
+		section2.push(`Grind: ${grind}`);
+	}
+	if (waterAmount) {
+		section2.push(`Water: ${waterAmount}`);
+	}
+	if (coffeeAmount) {
+		section2.push(`Coffee: ${coffeeAmount}`);
+	}
+	if (tastingNotes) {
+		section3.push(`Notes: ${tastingNotes}`);
+	}
+
+	return { section1, section2, section3 };
+}
+
 function RecipeGridCard(props) {
 	const [recipe, setRecipe] = useState({});
 
@@ -34,19 +82,9 @@ function RecipeGridCard(props) {
 			});
 	};
 
-	const {
-		brewMethod,
-		coffeeName,
-		roaster,
-		coffeeVariety,
-		process,
-		waterAmount,
-		coffeeAmount,
-		steps,
-		tastingNotes,
-		created,
-		grind,
-	} = recipe;
+	const { created, waterAmount, coffeeAmount, steps } = recipe;
+
+	const { section1, section2, section3 } = processRecipe(recipe);
 
 	return (
 		<RecipeGridCardWrapper>
@@ -55,22 +93,22 @@ function RecipeGridCard(props) {
 					<RecipeSection>
 						<h3>Coffee Information</h3>
 						<FormattedDateView created={created} />
-						<p className='origin'>Origin: {coffeeName}</p>
-						<p className='roaster'>Roaster: {roaster}</p>
-						<p className='variety'>Variety: {coffeeVariety}</p>
-						<p className='process'>Process: {process}</p>
-						<p className='method'>Method: {brewMethod}</p>
+						{section1.map((text) => (
+							<p key={text}>{text}</p>
+						))}
 					</RecipeSection>
 					<RecipeSection>
 						<h3>Recipe Information</h3>
-						<p className='grind'>Grind Setting: {grind}</p>
-						<p className='water'>Water: {waterAmount} g</p>
-						<p className='coffee'>Coffee: {coffeeAmount} g</p>
+						{section2.map((text) => (
+							<p key={text}>{text}</p>
+						))}
 						<FormattedRatioView water={waterAmount} coffee={coffeeAmount} />
 					</RecipeSection>
 					<RecipeSection>
 						<CardStepsView steps={steps} />
-						<p className='tastingNotes'>Notes: {tastingNotes}</p>
+						{section3.map((text) => (
+							<p key={text}>{text}</p>
+						))}
 					</RecipeSection>
 				</RecipeSections>
 				<Link to='/grid'>Back To Coffee Grid</Link>
