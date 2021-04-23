@@ -29,10 +29,11 @@ function App() {
 					path='/new-recipe'
 					component={CoffeeForm}
 				/>
-				<Route
+				<ProtectedRoute
+					loggedIn={loggedIn}
 					exact
 					path='/grid'
-					component={() => <RecipesGrid loggedIn={loggedIn} />}
+					component={RecipesGrid}
 				/>
 				<Route exact path='/resources' component={Resources} />
 				<Route exact path='/login' component={LoginForm} />

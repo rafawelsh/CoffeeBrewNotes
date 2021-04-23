@@ -6,7 +6,7 @@ import { StyledGrid, StyledItem, NavLink } from "../../styles/RecipeGridStyles";
 import { RecipeGridWrapper } from "../../styles/PageStyles";
 import CoffeeIcon from "../../images/coffee.png";
 
-function RecipesGrid({ loggedIn }) {
+function RecipesGrid() {
 	const [recipeEntries, setRecipeEntries] = useState([]);
 
 	useEffect(() => {
@@ -21,6 +21,7 @@ function RecipesGrid({ loggedIn }) {
 		})
 			.then((res) => {
 				setRecipeEntries(Object.values(res.data));
+				// console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err);

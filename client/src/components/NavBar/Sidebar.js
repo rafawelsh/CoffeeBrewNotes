@@ -13,6 +13,7 @@ const Sidebar = ({ loggedIn }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => {
 		setIsOpen(!isOpen);
+		// console.log(isOpen);
 	};
 
 	return (
@@ -21,16 +22,12 @@ const Sidebar = ({ loggedIn }) => {
 				{isOpen ? <CloseIcon onClick={toggle} /> : <Bars onClick={toggle} />}
 			</Icon>
 			<NavMenu isOpen={isOpen}>
-				{loggedIn && (
-					<>
-						<NavLink exact to='/new-recipe' onClick={toggle}>
-							New Recipe
-						</NavLink>
-						<NavLink exact to='/grid' onClick={toggle}>
-							Grid
-						</NavLink>
-					</>
-				)}
+				<NavLink exact to='/new-recipe' onClick={toggle}>
+					New Recipe
+				</NavLink>
+				<NavLink exact to='/grid' onClick={toggle}>
+					Grid
+				</NavLink>
 				<NavLink to='/resources' onClick={toggle}>
 					Resources
 				</NavLink>

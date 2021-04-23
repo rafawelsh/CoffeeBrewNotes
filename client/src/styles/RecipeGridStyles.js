@@ -1,6 +1,6 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "./MediaQueries";
+import { colors, device } from "./MediaQueries";
 
 export const StyledGrid = styled.ul`
 	list-style-type: none;
