@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Input, Label, Button } from "../../styles/FormStyles";
 import {
@@ -9,6 +10,8 @@ import {
 } from "../../styles/UserForms";
 
 function LoginForm() {
+	const [redirect, setRedirect] = useState(false);
+
 	const initialValues = {
 		email: "",
 		password: "",
@@ -24,6 +27,7 @@ function LoginForm() {
 				actions.setSubmitting(false);
 				actions.resetForm();
 				localStorage.setItem("token", response.data.token);
+				setRedirect(true);
 			})
 			.catch((error) => {
 				actions.setSubmitting(false);
@@ -33,20 +37,24 @@ function LoginForm() {
 
 	return (
 		<FormContainer>
-			<AccountFormContainer>
-				<FormWrapper>
-					<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
-						<Form className='form-inner'>
-							<h1>Login</h1>
-							<Label htmlFor='email'>Email</Label>
-							<Input type='email' name='email' id='email' />
-							<Label htmlFor='password'>Password</Label>
-							<Input type='password' name='password' id='password' />
-							<Button type='submit'>Login</Button>
-						</Form>
-					</Formik>
-				</FormWrapper>
-			</AccountFormContainer>
+			{redirect ? (
+				<Redirect to='/grid' />
+			) : (
+				<AccountFormContainer>
+					<FormWrapper>
+						<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+							<Form className='form-inner'>
+								<h1>Login</h1>
+								<Label htmlFor='email'>Email</Label>
+								<Input type='email' name='email' id='email' />
+								<Label htmlFor='password'>Password</Label>
+								<Input type='password' name='password' id='password' />
+								<Button type='submit'>Login</Button>
+							</Form>
+						</Formik>
+					</FormWrapper>
+				</AccountFormContainer>
+			)}
 		</FormContainer>
 	);
 }

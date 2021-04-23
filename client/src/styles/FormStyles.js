@@ -36,7 +36,6 @@ export const RecipeFormContainer = styled.div`
 
 export const FormWrapper = styled.div`
 	background: ${colors.divBackground};
-	/* height: fit-content; */
 	border-radius: 1rem;
 	padding: 1rem 0.5rem;
 	margin: 0.5rem 0rem 2rem;
