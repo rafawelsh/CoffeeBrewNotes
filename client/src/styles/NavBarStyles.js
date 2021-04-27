@@ -16,8 +16,6 @@ export const Nav = styled.nav`
 
 export const NavLink = styled(Link)`
 	color: ${colors.highlight};
-	/* display: flex;
-	align-items: center; */
 	text-decoration: none;
 	font-size: 1.5rem;
 	padding: 2rem 1rem;
@@ -44,19 +42,18 @@ export const NavMenu = styled.div`
 	right: 0;
 	height: 100vh;
 	width: 100vw;
-	/* margin: 2rem 0rem; */
 	transform: ${({ isOpen }) =>
-		isOpen ? "translateY(0%)" : "translateY(-100%)"};
+		isOpen ? "translateY(0)" : "translateY(-100%)"};
 	transition: transform 0.3s ease-in-out;
 
 	@media ${device.tablet} {
+		transform: none;
+		transition: none;
 		background: none;
 		justify-content: flex-end;
 		position: static;
 		flex-flow: row nowrap;
 		height: 10vh;
-		transform: translateY(0);
-		transition: transform 0s;
 		font-size: 1rem;
 	}
 `;

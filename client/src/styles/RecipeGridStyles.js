@@ -1,12 +1,12 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors, device } from "./MediaQueries";
+import { colors } from "./MediaQueries";
 
 export const StyledGrid = styled.ul`
 	list-style-type: none;
 	display: grid;
 	padding: 0;
-	grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	grid-auto-rows: 175px;
 	grid-gap: 0.5rem;
 `;
