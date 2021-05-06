@@ -42,9 +42,21 @@ export const NavMenu = styled.div`
 	right: 0;
 	height: 100vh;
 	width: 100vw;
-	transform: ${({ isOpen }) =>
-		isOpen ? "translateY(0)" : "translateY(-100%)"};
-	transition: transform 0.3s ease-in-out;
+	/* transform: ${({ isOpen }) =>
+		isOpen ? "translateY(0)" : "translateY(-100%)"}; */
+	/* transition: transform 0.3s ease-in-out; */
+	${(props) => {
+		if (props.isOpen) {
+			return `
+				transform: translateY(0);
+				transition: transform 0.3s ease-in-out;
+			`;
+		} else {
+			return `
+					transform: translateY(-100%);
+				`;
+		}
+	}};
 
 	@media ${device.tablet} {
 		transform: none;
