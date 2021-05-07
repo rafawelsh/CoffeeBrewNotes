@@ -20,7 +20,7 @@ function processRecipe(recipe) {
 		brewMethod,
 		coffeeName,
 		roaster,
-		coffeeVariety,
+		region,
 		process,
 		waterAmount,
 		coffeeAmount,
@@ -34,8 +34,8 @@ function processRecipe(recipe) {
 	if (roaster) {
 		section1.push(`Roaster: ${roaster}`);
 	}
-	if (coffeeVariety) {
-		section1.push(`Variety: ${coffeeVariety}`);
+	if (region) {
+		section1.push(`Variety: ${region}`);
 	}
 	if (process) {
 		section1.push(`Process: ${process}`);
@@ -91,14 +91,14 @@ function RecipeGridCard(props) {
 			<StyledGridCard>
 				<RecipeSections>
 					<RecipeSection>
-						<h3>Coffee Information</h3>
+						<h2>Coffee Information</h2>
 						<FormattedDateView created={created} />
 						{section1.map((text) => (
 							<p key={text}>{text}</p>
 						))}
 					</RecipeSection>
 					<RecipeSection>
-						<h3>Recipe Information</h3>
+						<h2>Recipe Information</h2>
 						{section2.map((text) => (
 							<p key={text}>{text}</p>
 						))}

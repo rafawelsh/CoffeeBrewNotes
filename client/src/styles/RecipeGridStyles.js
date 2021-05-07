@@ -1,6 +1,6 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "./MediaQueries";
+import { colors, device } from "./MediaQueries";
 
 export const StyledGrid = styled.ul`
 	list-style-type: none;
@@ -8,7 +8,11 @@ export const StyledGrid = styled.ul`
 	padding: 0;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	grid-auto-rows: 175px;
-	grid-gap: 0.5rem;
+	grid-gap: 1rem;
+
+	@media ${device.laptop} {
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	}
 `;
 
 export const StyledItem = styled.li`
@@ -22,6 +26,10 @@ export const StyledItem = styled.li`
 		padding-right: 1.5rem;
 		align-self: center;
 	}
+
+	&:hover {
+		border: 0.125rem solid ${colors.textHeader};
+	}
 `;
 
 export const NavLink = styled(Link)`
@@ -33,5 +41,6 @@ export const NavLink = styled(Link)`
 	&:link,
 	&:active {
 		text-decoration: none;
+		color: ${colors.textColor};
 	}
 `;

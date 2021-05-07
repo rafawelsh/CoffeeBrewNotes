@@ -19,6 +19,7 @@ export const AccountFormContainer = styled.div`
 		padding: 0rem 3rem;
 	}
 `;
+
 export const FormGroup = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -35,8 +36,8 @@ export const RecipeFormContainer = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-	background: ${colors.divBackground};
-	/* height: fit-content; */
+	/* background: ${colors.divBackground}; */
+	border: 0.25rem solid ${colors.textHeader};
 	border-radius: 1rem;
 	padding: 1rem 0.5rem;
 	margin: 0.5rem 0rem 2rem;
@@ -44,6 +45,12 @@ export const FormWrapper = styled.div`
 	@media ${device.tablet} {
 		max-width: 1000px;
 		width: 100%;
+		/* max-height: 800px; */
+	}
+
+	@media ${device.laptopL} {
+		max-width: 1300px;
+		/* max-height: 1000px; */
 	}
 `;
 
@@ -53,11 +60,6 @@ export const FormSections = styled.div`
 		display: flex;
 		flex: row;
 	}
-`;
-
-export const FormSection = styled.div`
-	width: 100%;
-	padding: 0rem 1rem;
 `;
 
 export const SharedFormStyles = css`
@@ -70,11 +72,43 @@ export const SharedFormStyles = css`
 	margin: 0.75rem 0rem 1rem;
 	padding: 1rem 1.25rem;
 	box-sizing: border-box;
+
+	@media ${device.laptopL} {
+		height: 2.5rem;
+		font-size: 1.125rem;
+	}
+`;
+
+export const FormSection = styled.div`
+	width: 90%;
+	padding: 0rem 1rem;
+
+	.selectInput {
+		${SharedFormStyles}
+		padding: 0rem 1.5rem;
+	}
+	.textarea {
+		${SharedFormStyles}
+		resize: none;
+		height: 100px;
+		width: 100%;
+	}
+
+	@media ${device.laptopL} {
+		.textarea {
+			height: 225px;
+			font-size: 1.125rem;
+		}
+	}
 `;
 
 export const Label = styled.label`
 	color: ${colors.textColor};
 	font-size: 1rem;
+
+	@media ${device.laptopL} {
+		font-size: 1.125rem;
+	}
 `;
 
 export const Input = styled(FilteredPropsInputField)`
@@ -91,6 +125,11 @@ export const TextArea = styled(FilteredPropsInputField)`
 	resize: none;
 	height: 100px;
 	width: 100%;
+
+	@media ${device.laptopL} {
+		height: 225px;
+		font-size: 1.125rem;
+	}
 `;
 
 export const Steps = styled.div`
@@ -99,19 +138,27 @@ export const Steps = styled.div`
 `;
 
 export const Button = styled.button`
-	background: ${colors.highlight};
-	font-size: 1rem;
+	background: ${colors.textHeader};
+	color: #fff;
+	font-size: 1.25rem;
 	padding: 0.5rem 1rem;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+	margin: 0.5rem 2rem;
 
 	&:hover {
-		transform: scale(1.1);
+		background: ${colors.highlight};
 	}
 `;
 
 export const AddStepButton = styled(Button)`
+	font-size: 1rem;
 	padding: 0.5rem;
 	margin: 1rem 0 1.25rem 0;
+`;
+
+export const RemoveStepBtn = styled(Button)`
+	font-size: 1rem;
+	margin: 0.25rem;
 `;
