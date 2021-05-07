@@ -18,7 +18,7 @@ const RecipeSchema = new Schema({
 	coffeeName: {
 		type: String,
 	},
-	coffeeVariety: {
+	region: {
 		type: String,
 	},
 	process: {

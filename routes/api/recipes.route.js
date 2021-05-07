@@ -31,7 +31,7 @@ router.post("/", verify, (req, res) => {
 		brewMethod: req.body.brewMethod,
 		roaster: req.body.roaster,
 		coffeeName: req.body.coffeeName,
-		coffeeVariety: req.body.coffeeVariety,
+		region: req.body.region,
 		process: req.body.process,
 		tastingNotes: req.body.tastingNotes,
 		waterAmount: req.body.waterAmount,
