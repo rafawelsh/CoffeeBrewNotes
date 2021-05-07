@@ -17,9 +17,9 @@ export const device = {
 export const colors = {
 	textColor: "#242424",
 	textHeader: "#0B5B57",
-	secondaryText: "#FDDAD0",
-	backgroundLight: "#E7E0D6",
+	secondaryBackground: "#FDDAD0",
+	backgroundLight: "##F4F1EB",
 	backgroundDark: "#02424A",
-	divBackground: "#F2F2F2",
-	highlight: "#F3A25D",
+	divBackground: "#E6E6E6",
+	highlight: "#108E88",
 };

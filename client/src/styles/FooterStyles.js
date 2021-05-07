@@ -2,15 +2,16 @@ import styled from "styled-components";
 import { colors } from "./MediaQueries";
 
 export const FooterSection = styled.footer`
-	min-height: 10vh;
+	min-height: 7vh;
 	text-align: center;
 	background: ${colors.textHeader};
-	color: ${colors.textColor};
+	color: #fff;
 	padding: 0.5rem 0rem 1rem;
-	p {
-		padding: 0rem 1rem;
-		word-wrap: break-word;
-	}
+`;
+
+export const Section = styled.section`
+	padding: 0rem 1rem;
+	word-wrap: break-word;
 `;
 
 export const Link = styled.a`

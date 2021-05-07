@@ -19,7 +19,7 @@ export default function Home() {
 				<HeroImage />
 				<HeroContent>
 					<h1>Have Your Best Recipes At Hand</h1>
-					<p style={{ marginBottom: "2rem" }}>
+					<p>
 						CoffeeLog is a digital notetaking tool for the home barista. Never
 						lose a great recipe again.
 					</p>

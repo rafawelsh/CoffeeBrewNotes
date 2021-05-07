@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { colors, device } from "./MediaQueries";
 import { BsFillGrid3X3GapFill, BsCardText } from "react-icons/bs";
 import HeroImg from "../images/heroImageMobile2.png";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export const Hero = styled.div`
 	min-height: 90vh;
 
-	@media ${device.mobileL} {
+	@media ${device.tablet} {
 		display: flex;
 		flex-direction: row-reverse;
 		align-items: center;
@@ -21,7 +21,11 @@ export const HeroImage = styled.img`
 	width: 100%;
 
 	@media ${device.mobileL} {
-		height: 85vh;
+		height: 60vh;
+	}
+
+	@media ${device.tablet} {
+		height: 80vh;
 	}
 `;
 
@@ -35,6 +39,19 @@ export const HeroContent = styled.div`
 
 	h1 {
 		margin: 0.5rem 0rem;
+	}
+
+	p {
+		margin-bottom: 2rem;
+	}
+
+	@media ${device.laptop} {
+		h1 {
+			font-size: 3rem;
+		}
+		p {
+			font-size: 1.5rem;
+		}
 	}
 `;
 
@@ -55,40 +72,46 @@ export const NavBtnLink = styled(Link)`
 		color: #010606;
 	}
 
-	@media ${device.mobileL} {
+	@media ${device.tablet} {
 		padding: 0.5rem 1rem;
+		font-size: 1.5rem;
 	}
 `;
 
 export const InfoSection = styled.div`
 	background: ${colors.backgroundLight};
 	width: 100%;
-	min-height: 90vh;
+	min-height: 75vh;
 	text-align: center;
 	margin: 0 auto;
 	color: ${colors.textHeader};
 
-	@media ${device.mobileL} {
+	@media ${device.tablet} {
 		min-height: 70vh;
+		width: 90vw;
+		max-width: 1200px;
 		h2 {
-			font-size: 2rem;
+			font-size: 2.5rem;
+		}
+		p {
+			font-size: 1.5rem;
 		}
 	}
 `;
 
 export const InfoSectionFlex = styled.div`
-	@media ${device.mobileL} {
+	@media ${device.tablet} {
 		display: flex;
 		flex: 1 1 300px;
 		flex-direction: row;
+		justify-content: center;
 	}
 `;
 
 export const InfoSectionSteps = styled.section`
-	width: 90%;
+	width: 90vw;
 	min-height: 175px;
-	margin: 2.5rem auto;
-	margin: 1rem;
+	margin: 1rem auto;
 	background: ${colors.divBackground};
 	border-radius: 0.75rem;
 	display: flex;
@@ -98,17 +121,30 @@ export const InfoSectionSteps = styled.section`
 
 	h3 {
 		padding: 0rem 0.5rem;
+		font-size: 1.5rem;
+	}
+
+	@media ${device.tablet} {
+		height: 400px;
+
+		margin: 2rem;
 	}
 `;
 
-export const GridIcon = styled(BsFillGrid3X3GapFill)`
+export const StyledIcon = css`
 	height: 2.5rem;
 	width: 2.5rem;
 	color: ${colors.textHeader};
+
+	@media ${device.laptop} {
+		height: 3rem;
+		width: 3rem;
+	}
+`;
+export const GridIcon = styled(BsFillGrid3X3GapFill)`
+	${StyledIcon}
 `;
 
 export const CardIcon = styled(BsCardText)`
-	height: 2.5rem;
-	width: 2.5rem;
-	color: ${colors.textHeader};
+	${StyledIcon}
 `;
