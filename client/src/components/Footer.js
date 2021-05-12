@@ -7,7 +7,6 @@ export default function Footer() {
 			<Section>
 				Designed and Developed by <br />
 				Rafael Castellanos-Welsh <br />
-				@rafaandcoffee
 			</Section>
 		</FooterSection>
 	);

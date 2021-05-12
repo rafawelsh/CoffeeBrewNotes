@@ -1,12 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const dotenv = require("dotenv");
+const dotenv = require("dotenv").config();
 
 //routes
 const recipes = require("./routes/api/recipes.route");
 const authRoute = require("./routes/auth.routes");
-dotenv.config();
 
 //Connect to Mongo
 mongoose
