@@ -2,10 +2,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const dotenv = require("dotenv").config();
+const cors = require(cors);
+
+const corsOptions = {
+	origin: ["https://coffeebrewlog.netlify.app", "http://localhost:5000"],
+	optionsSuccessStatus: 200,
+};
 
 //routes
 const recipes = require("./routes/api/recipes.route");
 const authRoute = require("./routes/auth.routes");
+app.get("/", (req, res) => {
+	res.send("Hello from Express!");
+});
 
 //Connect to Mongo
 mongoose
@@ -17,15 +26,12 @@ mongoose
 	.catch((err) => console.log(err));
 
 // middleware
+app.use(cors(corsOptions));
 app.use(express.json());
 
 //Use routes
 app.use("/api/recipes/", recipes);
 app.use("/api/user/", authRoute);
-
-app.get("/", (req, res) => {
-	res.send("Hello from Express!");
-});
 
 const port = process.env.PORT || 5000;
 
