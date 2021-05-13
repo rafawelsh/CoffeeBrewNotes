@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const app = express();
-const dotenv = require("dotenv").config();
 const cors = require(cors);
+const dotenv = require("dotenv").config();
+const app = express();
 
 const corsOptions = {
 	origin: ["https://coffeebrewlog.netlify.app", "http://localhost:5000"],
