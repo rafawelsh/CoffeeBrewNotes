@@ -27,6 +27,7 @@ mongoose
 
 // middleware
 app.use(cors(corsOptions));
+app.options("*", cors());
 app.use(express.json());
 
 //Use routes
