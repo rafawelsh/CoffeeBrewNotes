@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const dotenv = require("dotenv").config();
-const cors = require(cors);
 
 //routes
 const recipes = require("./routes/api/recipes.route");
@@ -18,7 +17,6 @@ mongoose
 	.catch((err) => console.log(err));
 
 // middleware
-app.use(cors());
 app.use(express.json());
 
 //Use routes
