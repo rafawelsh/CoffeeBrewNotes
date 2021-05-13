@@ -17,7 +17,7 @@ function LoginForm() {
 	const handleOnSubmit = (values, actions) => {
 		axios({
 			method: "POST",
-			url: "/api/user/login",
+			url: "https://coffee-journal-app.herokuapp.com/api/user/login",
 			data: values,
 		})
 			.then((response) => {

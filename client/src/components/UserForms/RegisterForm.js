@@ -18,7 +18,7 @@ function RegisterForm() {
 	const handleOnSubmit = (values, actions) => {
 		axios({
 			method: "POST",
-			url: "/api/user/register",
+			url: "https://coffee-journal-app.herokuapp.com/api/user/register",
 			data: values,
 		})
 			.then((response) => {
