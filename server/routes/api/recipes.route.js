@@ -74,7 +74,12 @@ router.delete("/:id", (req, res) => {
 @access Public for now
 */
 router.get("/:id", (req, res) => {
-	Recipe.findById(req.params.id).then((recipe) => res.json(recipe));
+	Recipe.findById(req.params.id)
+		.then((recipe) => res.json(recipe))
+		.catch((err) => {
+			console.log(err);
+			res.status(204).json({ success: false });
+		});
 });
 
 module.exports = router;
