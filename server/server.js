@@ -21,8 +21,7 @@ app.get("/", (req, res) => {
 });
 
 //Connect to Mongo
-const url = process.env.DEV_DB_CONNECT;
-mongoose.connect(url, {
+mongoose.connect(process.env.DB_CONNECT, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
