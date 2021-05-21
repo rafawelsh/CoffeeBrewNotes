@@ -25,7 +25,6 @@ router.get("/", verify, (req, res) => {
 router.post("/", verify, (req, res) => {
 	//find out who the token is coming from
 	const { _id } = req.user;
-	console.log(`This is the user ${_id}`);
 
 	const newRecipe = new Recipe({
 		brewMethod: req.body.brewMethod,

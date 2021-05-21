@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../contexts/jwtContext";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
@@ -11,23 +12,28 @@ import {
 
 function RegisterForm() {
 	const [redirect, setRedirect] = useState(false);
+	const [authState, setAuthState] = useContext(AuthContext);
+	console.log("RF 16: " + authState);
+
 	const initialValues = {
 		name: "",
 		email: "",
 		password: "",
 	};
-	const { REACT_APP_DEV_DB_REGISTER } = process.env;
 
 	const handleOnSubmit = (values, actions) => {
 		axios({
+			headers: {
+				"Access-Control-Allow-Origin": "*",
+			},
 			method: "POST",
-			url: { REACT_APP_DEV_DB_REGISTER },
+			url: "https://coffee-journal-app.herokuapp.com/api/user/register",
 			data: values,
 		})
 			.then((response) => {
 				actions.setSubmitting(false);
 				actions.resetForm();
-				localStorage.setItem("token", response.data.token);
+				setAuthState(localStorage.setItem("token", response.data.token));
 				setRedirect(true);
 			})
 			.catch((error) => {
@@ -35,7 +41,7 @@ function RegisterForm() {
 				console.log(error);
 			});
 	};
-
+	console.log(authState);
 	return (
 		<FormContainer>
 			{redirect ? (

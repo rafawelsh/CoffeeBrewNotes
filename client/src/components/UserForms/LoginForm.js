@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../contexts/jwtContext";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
@@ -9,26 +10,26 @@ import {
 	FormWrapper,
 } from "../../styles/UserForms";
 
-function LoginForm({ login, setLogin }) {
+function LoginForm() {
+	const [authState, setAuthState] = useContext(AuthContext);
+	console.log("LF 15: " + authState);
+
 	const [redirect, setRedirect] = useState(false);
 	const initialValues = {
 		email: "",
 		password: "",
 	};
 
-	const { REACT_APP_DEV_DB_LOGIN } = process.env;
-
 	const handleOnSubmit = (values, actions) => {
 		axios({
 			method: "POST",
-			url: { REACT_APP_DEV_DB_LOGIN },
+			url: "https://coffee-journal-app.herokuapp.com/api/user/login",
 			data: values,
 		})
 			.then((response) => {
 				actions.setSubmitting(false);
 				actions.resetForm();
-				localStorage.setItem("token", response.data.token);
-				setLogin(response.data.token);
+				setAuthState(localStorage.setItem("token", response.data.token));
 				setRedirect(true);
 			})
 			.catch((error) => {
@@ -36,8 +37,6 @@ function LoginForm({ login, setLogin }) {
 				console.log(error);
 			});
 	};
-
-	console.log({ login });
 
 	return (
 		<FormContainer>

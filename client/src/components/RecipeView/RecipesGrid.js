@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../contexts/jwtContext";
 import axios from "axios";
 import FormattedDateView from "./FormattedDateView";
 import FormattedRatioView from "./FormattedRatioView";
@@ -7,19 +8,18 @@ import { RecipeGridWrapper } from "../../styles/PageStyles";
 import CoffeeIcon from "../../images/coffee.png";
 
 function RecipesGrid() {
+	const [authState] = useContext(AuthContext);
 	const [recipeEntries, setRecipeEntries] = useState([]);
 
 	useEffect(() => {
 		getRecipeEntries();
 	}, []);
 
-	const { REACT_APP_DEV_DB_RECIPE } = process.env;
-
 	const getRecipeEntries = () => {
 		axios({
-			headers: { "auth-token": localStorage.getItem("token") },
+			headers: { "auth-token": authState },
 			method: "GET",
-			url: { REACT_APP_DEV_DB_RECIPE },
+			url: "https://coffee-journal-app.herokuapp.com/api/recipes/",
 		})
 			.then((res) => {
 				setRecipeEntries(Object.values(res.data));
@@ -32,24 +32,31 @@ function RecipesGrid() {
 	return (
 		<RecipeGridWrapper>
 			<h1>List of recipes</h1>
-			<StyledGrid>
-				{recipeEntries.map((recipe) => (
-					<StyledItem key={recipe._id}>
-						<NavLink to={`grid/${recipe._id}`}>
-							<img src={CoffeeIcon} alt='icon' />
-							<div>
-								<p className='roaster'>Roaster: {recipe.roaster}</p>
-								<p className='coffeename'>Name: {recipe.coffeeName}</p>
-								<FormattedRatioView
-									water={recipe.waterAmount}
-									coffee={recipe.coffeeAmount}
-								/>
-								<FormattedDateView created={recipe.created} />
-							</div>
-						</NavLink>
-					</StyledItem>
-				))}
-			</StyledGrid>
+			{recipeEntries.length === 0 ? (
+				<>
+					<h2>Add Your First Recipe!</h2>
+					<h2>Hit the "Add Recipe Button"</h2>
+				</>
+			) : (
+				<StyledGrid>
+					{recipeEntries.map((recipe) => (
+						<StyledItem key={recipe._id}>
+							<NavLink to={`grid/${recipe._id}`}>
+								<img src={CoffeeIcon} alt='icon' />
+								<div>
+									<p className='roaster'>Roaster: {recipe.roaster}</p>
+									<p className='coffeename'>Name: {recipe.coffeeName}</p>
+									<FormattedRatioView
+										water={recipe.waterAmount}
+										coffee={recipe.coffeeAmount}
+									/>
+									<FormattedDateView created={recipe.created} />
+								</div>
+							</NavLink>
+						</StyledItem>
+					))}
+				</StyledGrid>
+			)}
 		</RecipeGridWrapper>
 	);
 }

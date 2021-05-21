@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "./contexts/jwtContext";
 import { Route, Redirect } from "react-router-dom";
 
-function ProtectedRoute({ component: Component, loggedIn, ...rest }) {
+function ProtectedRoute({ component: Component, ...rest }) {
+	const [authState] = useContext(AuthContext);
+
 	return (
 		<Route
 			{...rest}
 			render={(props) => {
-				if (loggedIn) {
+				if (authState) {
 					return <Component {...rest} {...props} />;
 				} else {
 					return (

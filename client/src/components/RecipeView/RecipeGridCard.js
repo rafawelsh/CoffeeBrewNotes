@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../contexts/jwtContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import CardStepsView from "./CardStepsView";
@@ -60,6 +61,7 @@ function processRecipe(recipe) {
 }
 
 function RecipeGridCard(props) {
+	const [authState] = useContext(AuthContext);
 	const [recipe, setRecipe] = useState({});
 
 	const { id } = props.match.params;
@@ -68,13 +70,11 @@ function RecipeGridCard(props) {
 		getRecipes();
 	}, []);
 
-	const { REACT_APP_DEV_DB_RECIPE } = process.env;
-
 	const getRecipes = () => {
 		axios({
-			headers: { "auth-token": localStorage.getItem("token") },
+			headers: { "auth-token": authState },
 			method: "GET",
-			url: `${REACT_APP_DEV_DB_RECIPE}${id}`,
+			url: `https://coffee-journal-app.herokuapp.com/api/recipes/${id}`,
 		})
 			.then((res) => {
 				setRecipe(res.data);

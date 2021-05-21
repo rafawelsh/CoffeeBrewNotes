@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../contexts/jwtContext";
 import {
 	NavLink,
 	NavMenu,
@@ -9,10 +10,10 @@ import {
 	CloseIcon,
 } from "../../styles/NavBarStyles";
 
-const Sidebar = ({ loggedIn }) => {
+const Sidebar = () => {
+	const [authState] = useContext(AuthContext);
 	const [isOpen, setIsOpen] = useState(false);
 
-	console.log(isOpen);
 	const toggle = () => {
 		setIsOpen(!isOpen);
 	};
@@ -32,7 +33,7 @@ const Sidebar = ({ loggedIn }) => {
 				{/* <NavLink to='/resources' onClick={toggle}>
 					Resources
 				</NavLink> */}
-				{!loggedIn ? (
+				{!authState ? (
 					<>
 						<NavBtn>
 							<NavBtnLink to='/login' onClick={() => setIsOpen(false)}>

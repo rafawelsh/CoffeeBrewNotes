@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Home from "./components/Home";
@@ -12,42 +12,26 @@ import RecipesGrid from "./components/RecipeView/RecipesGrid";
 import RecipeGridCard from "./components/RecipeView/RecipeGridCard";
 import NotFound from "./components/NotFound";
 import GlobalStyle from "./styles/GlobalStyles";
+import { AuthContext } from "./contexts/jwtContext";
 
 function App() {
-	const [login, setLogin] = useState(localStorage.getItem("token"));
+	// eslint-disable-next-line
+	const [authState, setAuthState] = useContext(AuthContext);
+	setAuthState(localStorage.getItem("token"));
 
-	// const loggedIn = localStorage.getItem("token");
-	console.log(login);
 	return (
 		<Router>
 			<GlobalStyle />
-			<NavBar loggedIn={login} />
+			<NavBar />
 
 			<Switch>
 				<Route exact path='/' component={Home} />
-				<ProtectedRoute
-					loggedIn={login}
-					exact
-					path='/new-recipe'
-					component={CoffeeForm}
-				/>
-				<ProtectedRoute
-					loggedIn={login}
-					exact
-					path='/grid'
-					component={RecipesGrid}
-				/>
+				<ProtectedRoute exact path='/new-recipe' component={CoffeeForm} />
+				<ProtectedRoute exact path='/grid' component={RecipesGrid} />
 				<Route exact path='/resources' component={Resources} />
-				<Route
-					exact
-					path='/login'
-					component={LoginForm}
-					login={login}
-					setLoggedIn={setLogin}
-				/>
+				<Route exact path='/login' component={LoginForm} />
 				<Route exact path='/register' component={RegisterForm} />
 				<ProtectedRoute
-					loggedIn={login}
 					path={`/grid/:id`}
 					component={(props) => <RecipeGridCard {...props} />}
 				/>

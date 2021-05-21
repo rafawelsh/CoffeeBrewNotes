@@ -5,7 +5,11 @@ const dotenv = require("dotenv").config();
 const app = express();
 
 const corsOptions = {
-	origin: ["https://coffeebrewlog.netlify.app", "http://localhost:5000"],
+	origin: [
+		"https://coffeebrewlog.netlify.app",
+		"http://localhost:5000",
+		"http://localhost:3000",
+	],
 	optionsSuccessStatus: 200,
 };
 
@@ -18,7 +22,7 @@ app.get("/", (req, res) => {
 
 //Connect to Mongo
 mongoose
-	.connect(process.env.DB_CONNECT, {
+	.connect(process.env.DEV_DB_CONNECT, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})

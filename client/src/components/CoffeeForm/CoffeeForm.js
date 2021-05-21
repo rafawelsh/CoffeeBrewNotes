@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../contexts/jwtContext";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Formik, Form, FieldArray, Field } from "formik";
@@ -17,6 +18,7 @@ import {
 } from "../../styles/FormStyles";
 
 function RecipeForm() {
+	const [authState] = useContext(AuthContext);
 	const [redirect, setRedirect] = useState(false);
 	const initialValues = {
 		brewMethod: "",
@@ -31,13 +33,11 @@ function RecipeForm() {
 		tastingNotes: "",
 	};
 
-	const { REACT_APP_DEV_DB_RECIPE } = process.env;
-
 	const handleOnSubmit = (values, actions) => {
 		axios({
-			headers: { "auth-token": localStorage.getItem("token") },
+			headers: { "auth-token": authState },
 			method: "POST",
-			url: { REACT_APP_DEV_DB_RECIPE },
+			url: "https://coffee-journal-app.herokuapp.com/api/recipes/",
 			data: values,
 		})
 			.then((response) => {
