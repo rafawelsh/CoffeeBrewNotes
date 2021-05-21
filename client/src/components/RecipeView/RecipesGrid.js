@@ -13,15 +13,16 @@ function RecipesGrid() {
 		getRecipeEntries();
 	}, []);
 
+	const { REACT_APP_DEV_DB_RECIPE } = process.env;
+
 	const getRecipeEntries = () => {
 		axios({
 			headers: { "auth-token": localStorage.getItem("token") },
 			method: "GET",
-			url: "/api/recipes",
+			url: { REACT_APP_DEV_DB_RECIPE },
 		})
 			.then((res) => {
 				setRecipeEntries(Object.values(res.data));
-				// console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err);

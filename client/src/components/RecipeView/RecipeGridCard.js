@@ -68,11 +68,13 @@ function RecipeGridCard(props) {
 		getRecipes();
 	}, []);
 
+	const { REACT_APP_DEV_DB_RECIPE } = process.env;
+
 	const getRecipes = () => {
 		axios({
 			headers: { "auth-token": localStorage.getItem("token") },
 			method: "GET",
-			url: `/api/recipes/${id}`,
+			url: `${REACT_APP_DEV_DB_RECIPE}${id}`,
 		})
 			.then((res) => {
 				setRecipe(res.data);

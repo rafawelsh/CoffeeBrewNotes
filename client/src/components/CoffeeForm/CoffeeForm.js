@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Route, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Formik, Form, FieldArray, Field } from "formik";
 import { PageContainer } from "../../styles/PageStyles";
 import {
@@ -31,11 +31,13 @@ function RecipeForm() {
 		tastingNotes: "",
 	};
 
+	const { REACT_APP_DEV_DB_RECIPE } = process.env;
+
 	const handleOnSubmit = (values, actions) => {
 		axios({
 			headers: { "auth-token": localStorage.getItem("token") },
 			method: "POST",
-			url: "/api/recipes",
+			url: { REACT_APP_DEV_DB_RECIPE },
 			data: values,
 		})
 			.then((response) => {
