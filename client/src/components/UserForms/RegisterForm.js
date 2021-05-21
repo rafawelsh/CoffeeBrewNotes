@@ -13,7 +13,6 @@ import {
 function RegisterForm() {
 	const [redirect, setRedirect] = useState(false);
 	const [authState, setAuthState] = useContext(AuthContext);
-	console.log("RF 16: " + authState);
 
 	const initialValues = {
 		name: "",
@@ -41,7 +40,7 @@ function RegisterForm() {
 				console.log(error);
 			});
 	};
-	console.log(authState);
+
 	return (
 		<FormContainer>
 			{redirect ? (
