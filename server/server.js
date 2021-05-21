@@ -21,13 +21,18 @@ app.get("/", (req, res) => {
 });
 
 //Connect to Mongo
-mongoose
-	.connect(process.env.DEV_DB_CONNECT, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
+const url = process.env.DEV_DB_CONNECT;
+mongoose.connect(url, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
+mongoose.connection
+	.once("open", function () {
+		console.log("DB Connected!");
 	})
-	.then(() => console.log("MongoDB Connected..."))
-	.catch((err) => console.log(err));
+	.on("error", function (error) {
+		console.log("Error is: ", error);
+	});
 
 // middleware
 app.use(cors(corsOptions));
