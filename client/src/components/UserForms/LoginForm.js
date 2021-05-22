@@ -12,7 +12,6 @@ import {
 
 function LoginForm() {
 	const [authState, setAuthState] = useContext(AuthContext);
-	console.log("LF 15: " + authState);
 
 	const [redirect, setRedirect] = useState(false);
 	const initialValues = {

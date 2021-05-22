@@ -11,14 +11,9 @@ export const SharedFormContainer = css`
 
 export const FormContainer = styled.main`
 	height: 100%;
-	min-height: 71vh;
+	min-height: calc(100vh - (17vh + 1.5rem));
 	display: flex;
 	align-items: center;
-
-	@media ${device.laptopL} {
-		height: 100%;
-		min-height: 78vh;
-	}
 `;
 
 export const AccountFormContainer = styled.div`

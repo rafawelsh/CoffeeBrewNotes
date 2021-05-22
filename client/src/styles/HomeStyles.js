@@ -57,7 +57,7 @@ export const HeroContent = styled.div`
 
 export const NavBtnLink = styled(Link)`
 	border-radius: 0.25rem;
-	background: ${colors.highlight};
+	background: ${colors.textHeader};
 	padding: 0.75rem 2rem;
 	color: #fff;
 	border: none;
@@ -68,8 +68,7 @@ export const NavBtnLink = styled(Link)`
 
 	&:hover {
 		transition: all 0.2s ease-in-out;
-		background: #fff;
-		color: #010606;
+		background: ${colors.highlight};
 	}
 
 	@media ${device.tablet} {
